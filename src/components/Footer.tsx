@@ -1,7 +1,13 @@
+
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const scrollToSection = (sectionId: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <footer id="footer" className="bg-white border-t border-gray-100 py-12">
@@ -24,36 +30,40 @@ const Footer = () => {
             <h3 className="font-bold mb-4">Snabblänkar</h3>
             <ul className="space-y-2">
               <li>
-                <Link 
-                  to="/#challenge" 
+                <a 
+                  href="#challenge" 
                   className="text-sm font-light hover:text-canucci-red transition-all-300"
+                  onClick={(e) => scrollToSection('challenge', e)}
                 >
                   Utmaningen
-                </Link>
+                </a>
               </li>
               <li>
-                <Link 
-                  to="/#solution" 
+                <a 
+                  href="#solution" 
                   className="text-sm font-light hover:text-canucci-red transition-all-300"
+                  onClick={(e) => scrollToSection('solution', e)}
                 >
                   Lösningen
-                </Link>
+                </a>
               </li>
               <li>
-                <Link 
-                  to="/#results" 
+                <a 
+                  href="#results" 
                   className="text-sm font-light hover:text-canucci-red transition-all-300"
+                  onClick={(e) => scrollToSection('results', e)}
                 >
                   Resultat
-                </Link>
+                </a>
               </li>
               <li>
-                <Link 
-                  to="/#about" 
+                <a 
+                  href="#about" 
                   className="text-sm font-light hover:text-canucci-red transition-all-300"
+                  onClick={(e) => scrollToSection('about', e)}
                 >
                   Om oss
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
