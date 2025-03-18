@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -12,6 +13,19 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToSection = (id: string, event?: React.MouseEvent) => {
+    if (event) {
+      event.preventDefault();
+    }
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <header 
@@ -38,45 +52,35 @@ const Navbar = () => {
             <a 
               href="#challenge" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={() => {
-                document.getElementById('challenge')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('challenge', e)}
             >
               Utmaningen
             </a>
             <a 
               href="#solution" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={() => {
-                document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('solution', e)}
             >
               Lösningen
             </a>
             <a 
               href="#results" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={() => {
-                document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('results', e)}
             >
               Resultat
             </a>
             <a 
               href="#about" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={() => {
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('about', e)}
             >
               Om oss
             </a>
             <a
-              href="#contact"
+              href="#footer"
               className="px-6 py-2 rounded-full bg-canucci-dark text-white hover:bg-canucci-red transition-all-300 text-sm"
-              onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('footer', e)}
             >
               Kontakta oss
             </a>
@@ -153,55 +157,35 @@ const Navbar = () => {
             <a
               href="#challenge"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsMenuOpen(false);
-                document.getElementById('challenge')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('challenge', e)}
             >
               Utmaningen
             </a>
             <a
               href="#solution"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsMenuOpen(false);
-                document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('solution', e)}
             >
               Lösningen
             </a>
             <a
               href="#results"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsMenuOpen(false);
-                document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('results', e)}
             >
               Resultat
             </a>
             <a
               href="#about"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsMenuOpen(false);
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('about', e)}
             >
               Om oss
             </a>
             <a
-              href="#contact"
+              href="#footer"
               className="mt-4 px-6 py-2 w-full text-center rounded-full bg-canucci-dark text-white hover:bg-canucci-red transition-all-300 text-xl"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsMenuOpen(false);
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={(e) => scrollToSection('footer', e)}
             >
               Kontakta oss
             </a>
