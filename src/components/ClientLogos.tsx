@@ -35,15 +35,6 @@ const ClientLogos = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl font-bold text-canucci-dark mb-2">
-            {t('clients.title') || 'Trusted by Industry Leaders'}
-          </h2>
-          <p className="text-gray-600">
-            {t('clients.subtitle') || 'We help organizations across various sectors achieve strategic alignment'}
-          </p>
-        </div>
-        
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16 px-4">
           {logos.map((logo, index) => (
             <div 
