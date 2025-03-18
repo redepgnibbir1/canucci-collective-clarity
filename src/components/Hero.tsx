@@ -30,7 +30,8 @@ const Hero = () => {
   }, []);
 
   const scrollToNext = () => {
-    document.getElementById('challenge')?.scrollIntoView({ behavior: 'smooth' });
+    const clientLogosSection = document.querySelector('section + section');
+    clientLogosSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
