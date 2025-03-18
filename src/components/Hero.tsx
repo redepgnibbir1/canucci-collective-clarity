@@ -39,7 +39,7 @@ const Hero = () => {
             ref={titleRef}
             className="opacity-100 text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight mb-6 text-balance"
           >
-            Stora organisationer har allt – utom fart.
+            Gör er strategi levande – genom dialog.
             <span className="text-canucci-red"> Det ändrar vi på.</span>
           </h1>
           
