@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -55,18 +56,26 @@ const Hero = () => {
             ref={ctaRef}
             className="opacity-100 flex flex-col sm:flex-row items-center gap-4 md:gap-6"
           >
-            <Link
-              to="/#contact"
+            <a
+              href="#contact"
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Låt oss visa hur
-            </Link>
-            <Link
-              to="/#solution"
+            </a>
+            <a
+              href="#solution"
               className="px-8 py-3 border border-canucci-dark text-canucci-dark hover:bg-canucci-dark hover:text-white rounded-full transition-all-300"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Så funkar det
-            </Link>
+            </a>
           </div>
         </div>
       </div>
