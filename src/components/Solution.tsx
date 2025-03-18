@@ -154,7 +154,7 @@ const Solution = () => {
             </div>
             
             <p className="mt-10 text-lg italic">
-              Det här är inte ett konsultprojekt. Det är er strategi – förankrad och levande.
+             
             </p>
           </div>
           
