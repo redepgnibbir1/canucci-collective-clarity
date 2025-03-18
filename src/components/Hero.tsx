@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
+import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -27,6 +28,10 @@ const Hero = () => {
       }
     }, 600);
   }, []);
+
+  const scrollToNext = () => {
+    document.getElementById('challenge')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 section-padding bg-gradient-to-b from-white to-gray-50">
@@ -82,21 +87,12 @@ const Hero = () => {
       </div>
 
       {/* Decorative arrows pointing down */}
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-        <svg
-          className="w-6 h-6 text-canucci-dark"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
+      <div 
+        className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce cursor-pointer"
+        onClick={scrollToNext}
+        aria-label={t('accessibility.scrollToNext')}
+      >
+        <ChevronDown className="w-8 h-8 text-canucci-dark" />
       </div>
     </section>
   );
