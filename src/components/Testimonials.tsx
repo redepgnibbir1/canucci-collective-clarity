@@ -22,7 +22,7 @@ const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -30,31 +30,25 @@ const Testimonials = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Add a default state with a small delay to prevent flickering
-    setTimeout(() => {
-      if (!inView && titleRef.current) {
-        titleRef.current.style.opacity = "0";
-      }
-      if (!inView && testimonialRef.current) {
-        testimonialRef.current.style.opacity = "0";
-      }
-      if (!inView && ctaRef.current) {
-        ctaRef.current.style.opacity = "0";
-      }
-    }, 50);
-  }, []);
-
-  useEffect(() => {
     if (inView) {
       setTimeout(() => {
-        if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
+        if (titleRef.current) {
+          titleRef.current.style.opacity = "1";
+          titleRef.current.classList.add("animate-slideDown");
+        }
         
         setTimeout(() => {
-          if (testimonialRef.current) testimonialRef.current.classList.add("animate-fadeIn");
+          if (testimonialRef.current) {
+            testimonialRef.current.style.opacity = "1";
+            testimonialRef.current.classList.add("animate-fadeIn");
+          }
         }, 300);
         
         setTimeout(() => {
-          if (ctaRef.current) ctaRef.current.classList.add("animate-fadeIn");
+          if (ctaRef.current) {
+            ctaRef.current.style.opacity = "1";
+            ctaRef.current.classList.add("animate-fadeIn");
+          }
         }, 600);
       }, 100);
     }
@@ -84,14 +78,14 @@ const Testimonials = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl mb-16 opacity-0 text-balance"
+            className="text-3xl md:text-4xl mb-16 opacity-0 text-balance transition-opacity duration-500"
           >
             Det här händer – när alla är med.
           </h2>
           
           <div 
             ref={testimonialRef}
-            className="glass-card p-8 md:p-16 mb-12 opacity-0"
+            className="glass-card p-8 md:p-16 mb-12 opacity-0 transition-opacity duration-500"
           >
             <div className="relative h-48">
               {testimonials.map((testimonial, idx) => (
@@ -125,7 +119,7 @@ const Testimonials = () => {
             </div>
           </div>
           
-          <div ref={ctaRef} className="opacity-0">
+          <div ref={ctaRef} className="opacity-0 transition-opacity duration-500">
             <Link 
               to="/#contact" 
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"
