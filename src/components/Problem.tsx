@@ -82,36 +82,28 @@ const Problem = () => {
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">1</span>
                 </div>
-                <div className="flex-1">
-                  <p className="text-lg font-light">{t('problem.issue1')}</p>
-                </div>
+                <p className="text-lg font-light">{t('problem.issue1')}</p>
               </li>
               
               <li className="flex items-start">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">2</span>
                 </div>
-                <div className="flex-1">
-                  <p className="text-lg font-light">{t('problem.issue2')}</p>
-                </div>
+                <p className="text-lg font-light">{t('problem.issue2')}</p>
               </li>
               
               <li className="flex items-start">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">3</span>
                 </div>
-                <div className="flex-1">
-                  <p className="text-lg font-light">{t('problem.issue3')}</p>
-                </div>
+                <p className="text-lg font-light">{t('problem.issue3')}</p>
               </li>
               
               <li className="flex items-start">
                 <div className="w-8 h-8 mr-4"></div>
-                <div className="flex-1">
-                  <p className="text-lg font-normal text-canucci-dark">
-                    {t('problem.conclusion')}
-                  </p>
-                </div>
+                <p className="text-lg font-normal text-canucci-dark">
+                  {t('problem.conclusion')}
+                </p>
               </li>
             </ul>
           </div>
