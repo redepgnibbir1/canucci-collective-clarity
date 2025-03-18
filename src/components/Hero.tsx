@@ -40,7 +40,7 @@ const Hero = () => {
             className="opacity-100 text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight mb-6 text-balance"
           >
             Gör er strategi levande – genom dialog.
-            <span className="text-canucci-red"> Det ändrar vi på.</span>
+            <span className="text-canucci-red"> genom dialog.</span>
           </h1>
           
           <p
