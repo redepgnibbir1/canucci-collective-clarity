@@ -80,6 +80,7 @@ const About = () => {
                 Vi levererar alltid: Ägarskap, förändring, resultat.
                 Canucci är sprunget ur en 160 år lång historia av ansvarsfullt ägande och ständig
                 förändring, med Wallenbergstiftelserna som delägare.
+                
                 Canucci  grundades av Oscar Stege Unger i Stockholm 2020 och har hittills inkluderat 
                 över 100 000 människor i dialogdriven förändring i 70 olika länder.
               </p>
