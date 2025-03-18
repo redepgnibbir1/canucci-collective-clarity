@@ -26,19 +26,9 @@ const ClientLogos = () => {
       width: 130
     },
     { 
-      name: "Lumera",
-      src: "/lovable-uploads/8b8eb8db-666a-4422-80c3-cc836255d351.png", 
-      width: 140
-    },
-    { 
       name: "Nobia",
       src: "/lovable-uploads/ab251c0b-42a6-438e-82ba-f6bffe4ba399.png", 
       width: 120
-    },
-    { 
-      name: "Mekonomen",
-      src: "/lovable-uploads/bc1e7297-775e-429f-abb2-7b387bf74e40.png", 
-      width: 150
     }
   ];
 
