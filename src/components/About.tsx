@@ -33,6 +33,11 @@ const About = () => {
     document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToFooter = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section 
       id="about"
@@ -88,13 +93,13 @@ const About = () => {
             >
               Träffa teamet
             </a>
-            <Link
-              to="/#contact"
+            <a
+              href="#footer"
               className="px-8 py-3 border border-canucci-dark text-canucci-dark hover:bg-canucci-dark hover:text-white rounded-full transition-all-300 text-center"
-              id="contact"
+              onClick={scrollToFooter}
             >
               Kontakta oss
-            </Link>
+            </a>
           </div>
         </div>
       </div>

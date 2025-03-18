@@ -1,7 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { Link } from "react-router-dom";
 
 const testimonials = [
   {
@@ -63,6 +62,11 @@ const Testimonials = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const scrollToFooter = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section 
       id="results" 
@@ -120,12 +124,13 @@ const Testimonials = () => {
           </div>
           
           <div ref={ctaRef} className="opacity-0 transition-opacity duration-500">
-            <Link 
-              to="/#contact" 
+            <a 
+              href="#footer" 
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"
+              onClick={scrollToFooter}
             >
               Se fler resultat
-            </Link>
+            </a>
           </div>
         </div>
       </div>
