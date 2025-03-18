@@ -1,28 +1,30 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
-
-const testimonials = [
-  {
-    quote: "Vi såg en helt ny nivå av enighet bland våra ledare. Alla visste vad vi skulle göra – och hur.",
-    author: "VD, global industrikoncern"
-  },
-  {
-    quote: "Vi har äntligen ett sätt att lyssna på hela organisationen – och snabbt gå från insikt till handling.",
-    author: "Rickard Gustafson, VD SKF"
-  },
-  {
-    quote: "Med Canucci fick våra 52 000 medlemmar en röst. Det har förändrat hur vi leder.",
-    author: "Lotta Lyrå, VD Södra"
-  }
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Testimonials = () => {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.2,
     triggerOnce: false,
   });
+
+  const testimonials = [
+    {
+      quote: t('testimonials.quote1'),
+      author: t('testimonials.author1')
+    },
+    {
+      quote: t('testimonials.quote2'),
+      author: t('testimonials.author2')
+    },
+    {
+      quote: t('testimonials.quote3'),
+      author: t('testimonials.author3')
+    }
+  ];
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const testimonialRef = useRef<HTMLDivElement>(null);
@@ -60,7 +62,7 @@ const Testimonials = () => {
     }, 6000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   const scrollToFooter = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -84,7 +86,7 @@ const Testimonials = () => {
             ref={titleRef}
             className="text-3xl md:text-4xl mb-16 opacity-0 text-balance transition-opacity duration-500"
           >
-            Det här händer – när alla är med.
+            {t('testimonials.title')}
           </h2>
           
           <div 
@@ -129,7 +131,7 @@ const Testimonials = () => {
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"
               onClick={scrollToFooter}
             >
-              Se fler resultat
+              {t('testimonials.cta')}
             </a>
           </div>
         </div>

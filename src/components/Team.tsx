@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
+import { useLanguage } from "../contexts/LanguageContext";
 
 // Team member data
 const teamMembers = [
@@ -19,6 +19,7 @@ const teamMembers = [
 ];
 
 const Team = () => {
+  const { t } = useLanguage();
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -60,7 +61,7 @@ const Team = () => {
             ref={titleRef}
             className="opacity-100 text-3xl md:text-4xl text-center mb-16 text-balance text-canucci-dark"
           >
-            Träffa teamet
+            {t('team.title')}
           </h2>
 
           <div
@@ -85,11 +86,11 @@ const Team = () => {
             ref={textRef}
             className="opacity-100 text-center text-lg font-light text-canucci-dark"
           >
-            Det är vi som är Canucci. Hör gärna av dig på{" "}
+            {t('team.contact')}{" "}
             <a href="mailto:info@canucci.com" className="text-canucci-red hover:underline">
               info@canucci.com
             </a>{" "}
-            för att lära känna oss bättre.
+            {t('team.contact.end')}
           </p>
         </div>
       </div>

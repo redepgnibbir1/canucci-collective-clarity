@@ -1,12 +1,14 @@
 
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Problem = () => {
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
+  const { t } = useLanguage();
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -60,20 +62,19 @@ const Problem = () => {
             ref={titleRef}
             className="text-3xl md:text-4xl text-center mb-12 text-balance"
           >
-            Det är inte strategin som saknas. Det är samsyn.
+            {t('problem.title')}
           </h2>
           
           <p 
             ref={textRef}
             className="text-lg font-light mb-12 text-balance"
           >
-            Stora organisationer drunknar i information, silos och motstridiga perspektiv. 
-            Resultatet? Strategier som låter bra – men aldrig riktigt lyfter.
+            {t('problem.subtitle')}
           </p>
           
           <div className="glass-card p-8 md:p-12">
             <p className="text-lg font-light mb-8">
-              Vi löser det som alla känner igen:
+              {t('problem.intro')}
             </p>
             
             <ul ref={listRef} className="space-y-6">
@@ -81,27 +82,27 @@ const Problem = () => {
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">1</span>
                 </div>
-                <p className="text-lg font-light">Beslut går långsamt.</p>
+                <p className="text-lg font-light">{t('problem.issue1')}</p>
               </li>
               
               <li className="flex items-start">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">2</span>
                 </div>
-                <p className="text-lg font-light">Ingen vågar agera.</p>
+                <p className="text-lg font-light">{t('problem.issue2')}</p>
               </li>
               
               <li className="flex items-start">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">3</span>
                 </div>
-                <p className="text-lg font-light">Få vet hur de ska bidra.</p>
+                <p className="text-lg font-light">{t('problem.issue3')}</p>
               </li>
               
               <li className="flex items-start">
                 <div className="w-8 h-8 mr-4"></div>
                 <p className="text-lg font-normal text-canucci-dark">
-                  Vi hjälper er få med alla – så att ni får kraften att förändra på riktigt.
+                  {t('problem.conclusion')}
                 </p>
               </li>
             </ul>

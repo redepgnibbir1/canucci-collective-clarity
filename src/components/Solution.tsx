@@ -1,12 +1,14 @@
 
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Solution = () => {
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
+  const { t } = useLanguage();
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -69,21 +71,19 @@ const Solution = () => {
             ref={titleRef}
             className="text-3xl md:text-4xl text-center mb-8 text-balance"
           >
-            Collective Discovery™ – gör det enkelt att få med hela organisationen.
+            {t('solution.title')}
           </h2>
           
           <p 
             ref={textRef}
             className="text-lg font-light text-center mb-16 text-balance"
           >
-            Vi ställer EN fråga till alla – och lyssnar utan filter. 
-            Vår egen AI identifierar mönster, prioriteringar och hinder. 
-            Resultatet? Klarhet, riktning och ägarskap.
+            {t('solution.subtitle')}
           </p>
           
           <div className="glass-card p-8 md:p-12 mb-16">
             <p className="text-lg font-light mb-8">
-              Så går det till:
+              {t('solution.process')}
             </p>
             
             <div ref={stepsRef} className="space-y-10">
@@ -95,8 +95,8 @@ const Solution = () => {
                   <div className="w-px h-full bg-gray-200 mx-auto mt-2"></div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Alla bidrar – med sina egna ord.</h3>
-                  <p className="text-lg font-light">Enkel digital enkät där varje medarbetare kan utrycka sin mening.</p>
+                  <h3 className="text-xl font-bold mb-2">{t('solution.step1.title')}</h3>
+                  <p className="text-lg font-light">{t('solution.step1.description')}</p>
                 </div>
               </div>
               
@@ -108,8 +108,8 @@ const Solution = () => {
                   <div className="w-px h-full bg-gray-200 mx-auto mt-2"></div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">AI analyserar och visar vad som är viktigast.</h3>
-                  <p className="text-lg font-light">Vår specialutvecklade AI identifierar mönster och prioriteringar.</p>
+                  <h3 className="text-xl font-bold mb-2">{t('solution.step2.title')}</h3>
+                  <p className="text-lg font-light">{t('solution.step2.description')}</p>
                 </div>
               </div>
               
@@ -121,8 +121,8 @@ const Solution = () => {
                   <div className="w-px h-full bg-gray-200 mx-auto mt-2"></div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Vi definierar tillsammans hur vi tar oss framåt.</h3>
-                  <p className="text-lg font-light">Workshop där ledningsgruppen skapar handlingsplan baserad på insikterna.</p>
+                  <h3 className="text-xl font-bold mb-2">{t('solution.step3.title')}</h3>
+                  <p className="text-lg font-light">{t('solution.step3.description')}</p>
                 </div>
               </div>
               
@@ -134,8 +134,8 @@ const Solution = () => {
                   <div className="w-px h-full bg-gray-200 mx-auto mt-2"></div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Varje individ väljer sitt ansvar.</h3>
-                  <p className="text-lg font-light">Alla kan bidra efter sina förutsättningar, vilket skapar ägarskap.</p>
+                  <h3 className="text-xl font-bold mb-2">{t('solution.step4.title')}</h3>
+                  <p className="text-lg font-light">{t('solution.step4.description')}</p>
                 </div>
               </div>
               
@@ -146,8 +146,8 @@ const Solution = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Vi följer upp. Vi firar framsteg. Dialogen fortsätter.</h3>
-                  <p className="text-lg font-light">Kontinuerlig kommunikation för att hålla engagemanget levande.</p>
+                  <h3 className="text-xl font-bold mb-2">{t('solution.step5.title')}</h3>
+                  <p className="text-lg font-light">{t('solution.step5.description')}</p>
                 </div>
               </div>
             </div>
@@ -173,7 +173,7 @@ const Solution = () => {
                 }
               }}
             >
-              Läs mer om Collective Discovery™
+              {t('solution.cta')}
             </a>
           </div>
         </div>

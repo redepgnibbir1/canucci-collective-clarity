@@ -1,13 +1,14 @@
 
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { Link } from "react-router-dom";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const About = () => {
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
+  const { t } = useLanguage();
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -56,7 +57,7 @@ const About = () => {
             ref={titleRef}
             className="opacity-100 text-3xl md:text-4xl text-center mb-12 text-balance text-canucci-dark"
           >
-            Vi finns för att stora organisationer behöver tänka som små.
+            {t('about.title')}
           </h2>
           
           <div 
@@ -65,24 +66,19 @@ const About = () => {
           >
             <div className="glass-card p-8 md:p-12 mb-12">
               <p className="text-lg font-light mb-6 text-canucci-dark">
-                Canucci grundades med en enkel idé:
+                {t('about.subtitle')}
                 <br />
-                <span className="text-xl font-normal">Organisationer som lyssnar – och agerar – vinner.</span>
+                <span className="text-xl font-normal">{t('about.idea')}</span>
               </p>
               
               <p className="text-lg font-light mb-6 text-canucci-dark">
-                Vi gör det möjligt att leda en global organisation som om den vore ett litet team. 
-                Med lyhördhet, klarhet och rörelse framåt.
+                {t('about.paragraph1')}
               </p>
               
               <p className="text-lg font-light mb-6 text-canucci-dark">
-                Vår teknik är byggd in-house. Vår metod är testad i några av Nordens största bolag. 
-                Vi levererar alltid: Ägarskap, förändring, resultat.
-                Canucci är sprunget ur en 160 år lång historia av ansvarsfullt ägande och ständig
-                förändring, med Wallenbergstiftelserna som delägare.
+                {t('about.paragraph2')} 
                 
-                Canucci  grundades av Oscar Stege Unger i Stockholm 2020 och har hittills inkluderat 
-                över 100 000 människor i dialogdriven förändring i 70 olika länder.
+                {t('about.paragraph3')}
               </p>
             </div>
           </div>
@@ -96,14 +92,14 @@ const About = () => {
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 text-center"
               onClick={scrollToTeam}
             >
-              Träffa teamet
+              {t('about.cta.team')}
             </a>
             <a
               href="#footer"
               className="px-8 py-3 border border-canucci-dark text-canucci-dark hover:bg-canucci-dark hover:text-white rounded-full transition-all-300 text-center"
               onClick={scrollToFooter}
             >
-              Kontakta oss
+              {t('about.cta.contact')}
             </a>
           </div>
         </div>
