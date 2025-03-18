@@ -8,7 +8,18 @@ const Hero = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Set a very short timeout to ensure DOM is fully rendered
+    // Start with elements visible but not animated
+    if (titleRef.current) {
+      titleRef.current.style.opacity = "1";
+    }
+    if (subtitleRef.current) {
+      subtitleRef.current.style.opacity = "1";
+    }
+    if (ctaRef.current) {
+      ctaRef.current.style.opacity = "1";
+    }
+    
+    // Then apply animations after a short delay
     setTimeout(() => {
       if (titleRef.current) {
         titleRef.current.classList.add("animate-slideDown");
@@ -40,7 +51,7 @@ const Hero = () => {
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <h1
             ref={titleRef}
-            className="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight mb-6 opacity-0 text-balance"
+            className="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight mb-6 text-balance"
           >
             Stora organisationer har allt – utom fart.
             <span className="text-canucci-red"> Det ändrar vi på.</span>
@@ -48,7 +59,7 @@ const Hero = () => {
           
           <p
             ref={subtitleRef}
-            className="text-lg md:text-xl font-light mb-12 max-w-3xl opacity-0 text-balance"
+            className="text-lg md:text-xl font-light mb-12 max-w-3xl text-balance"
           >
             Vi hjälper ledare få hela organisationen att förstå, vilja och agera – tillsammans. 
             Med AI och vår metod Collective Discovery™ går förändring från ord till handling. Snabbt.
@@ -56,7 +67,7 @@ const Hero = () => {
           
           <div
             ref={ctaRef}
-            className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 opacity-0"
+            className="flex flex-col sm:flex-row items-center gap-4 md:gap-6"
           >
             <Link
               to="/#contact"

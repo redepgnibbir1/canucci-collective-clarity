@@ -13,15 +13,18 @@ const Problem = () => {
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    // Add a default state with a small delay to prevent flickering
-    setTimeout(() => {
-      if (!inView && titleRef.current) {
-        titleRef.current.style.opacity = "0";
-      }
-      if (!inView && textRef.current) {
-        textRef.current.style.opacity = "0";
-      }
-    }, 50);
+    // Start with everything visible
+    if (titleRef.current) {
+      titleRef.current.style.opacity = "1";
+    }
+    if (textRef.current) {
+      textRef.current.style.opacity = "1";
+    }
+    if (listRef.current) {
+      listRef.current.querySelectorAll('li').forEach(li => {
+        li.style.opacity = "1";
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -55,14 +58,14 @@ const Problem = () => {
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl text-center mb-12 opacity-0 text-balance"
+            className="text-3xl md:text-4xl text-center mb-12 text-balance"
           >
             Det är inte strategin som saknas. Det är samsyn.
           </h2>
           
           <p 
             ref={textRef}
-            className="text-lg font-light mb-12 opacity-0 text-balance"
+            className="text-lg font-light mb-12 text-balance"
           >
             Stora organisationer drunknar i information, silos och motstridiga perspektiv. 
             Resultatet? Strategier som låter bra – men aldrig riktigt lyfter.
@@ -74,28 +77,28 @@ const Problem = () => {
             </p>
             
             <ul ref={listRef} className="space-y-6">
-              <li className="flex items-start opacity-0">
+              <li className="flex items-start">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">1</span>
                 </div>
                 <p className="text-lg font-light">Beslut går långsamt.</p>
               </li>
               
-              <li className="flex items-start opacity-0">
+              <li className="flex items-start">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">2</span>
                 </div>
                 <p className="text-lg font-light">Ingen vågar agera.</p>
               </li>
               
-              <li className="flex items-start opacity-0">
+              <li className="flex items-start">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">3</span>
                 </div>
                 <p className="text-lg font-light">Få vet hur de ska bidra.</p>
               </li>
               
-              <li className="flex items-start opacity-0">
+              <li className="flex items-start">
                 <div className="w-8 h-8 mr-4"></div>
                 <p className="text-lg font-normal text-canucci-dark">
                   Vi hjälper er få med alla – så att ni får kraften att förändra på riktigt.

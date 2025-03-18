@@ -15,18 +15,21 @@ const Solution = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Add a default state with a small delay to prevent flickering
-    setTimeout(() => {
-      if (!inView && titleRef.current) {
-        titleRef.current.style.opacity = "0";
-      }
-      if (!inView && textRef.current) {
-        textRef.current.style.opacity = "0";
-      }
-      if (!inView && ctaRef.current) {
-        ctaRef.current.style.opacity = "0";
-      }
-    }, 50);
+    // Start with everything visible
+    if (titleRef.current) {
+      titleRef.current.style.opacity = "1";
+    }
+    if (textRef.current) {
+      textRef.current.style.opacity = "1";
+    }
+    if (stepsRef.current) {
+      stepsRef.current.querySelectorAll('div.opacity-0').forEach(div => {
+        div.classList.remove('opacity-0');
+      });
+    }
+    if (ctaRef.current) {
+      ctaRef.current.style.opacity = "1";
+    }
   }, []);
 
   useEffect(() => {
@@ -65,14 +68,14 @@ const Solution = () => {
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl text-center mb-8 opacity-0 text-balance"
+            className="text-3xl md:text-4xl text-center mb-8 text-balance"
           >
             Collective Discovery™ – gör det enkelt att få med hela organisationen.
           </h2>
           
           <p 
             ref={textRef}
-            className="text-lg font-light text-center mb-16 opacity-0 text-balance"
+            className="text-lg font-light text-center mb-16 text-balance"
           >
             Vi ställer EN fråga till alla – och lyssnar utan filter. 
             Vår egen AI identifierar mönster, prioriteringar och hinder. 
@@ -85,7 +88,7 @@ const Solution = () => {
             </p>
             
             <div ref={stepsRef} className="space-y-10">
-              <div className="flex items-start opacity-0">
+              <div className="flex items-start">
                 <div className="flex-shrink-0 mr-6">
                   <div className="w-10 h-10 rounded-full bg-canucci-dark flex items-center justify-center">
                     <span className="text-white font-bold">1</span>
@@ -98,7 +101,7 @@ const Solution = () => {
                 </div>
               </div>
               
-              <div className="flex items-start opacity-0">
+              <div className="flex items-start">
                 <div className="flex-shrink-0 mr-6">
                   <div className="w-10 h-10 rounded-full bg-canucci-dark flex items-center justify-center">
                     <span className="text-white font-bold">2</span>
@@ -111,7 +114,7 @@ const Solution = () => {
                 </div>
               </div>
               
-              <div className="flex items-start opacity-0">
+              <div className="flex items-start">
                 <div className="flex-shrink-0 mr-6">
                   <div className="w-10 h-10 rounded-full bg-canucci-dark flex items-center justify-center">
                     <span className="text-white font-bold">3</span>
@@ -124,7 +127,7 @@ const Solution = () => {
                 </div>
               </div>
               
-              <div className="flex items-start opacity-0">
+              <div className="flex items-start">
                 <div className="flex-shrink-0 mr-6">
                   <div className="w-10 h-10 rounded-full bg-canucci-dark flex items-center justify-center">
                     <span className="text-white font-bold">4</span>
@@ -137,7 +140,7 @@ const Solution = () => {
                 </div>
               </div>
               
-              <div className="flex items-start opacity-0">
+              <div className="flex items-start">
                 <div className="flex-shrink-0 mr-6">
                   <div className="w-10 h-10 rounded-full bg-canucci-dark flex items-center justify-center">
                     <span className="text-white font-bold">5</span>
@@ -155,7 +158,7 @@ const Solution = () => {
             </p>
           </div>
           
-          <div ref={ctaRef} className="text-center opacity-0">
+          <div ref={ctaRef} className="text-center">
             <Link 
               to="/#contact" 
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"

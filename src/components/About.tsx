@@ -14,18 +14,16 @@ const About = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Add a default state with a small delay to prevent flickering
-    setTimeout(() => {
-      if (!inView && titleRef.current) {
-        titleRef.current.style.opacity = "0";
-      }
-      if (!inView && textRef.current) {
-        textRef.current.style.opacity = "0";
-      }
-      if (!inView && ctaRef.current) {
-        ctaRef.current.style.opacity = "0";
-      }
-    }, 50);
+    // Start with everything visible
+    if (titleRef.current) {
+      titleRef.current.style.opacity = "1";
+    }
+    if (textRef.current) {
+      textRef.current.style.opacity = "1";
+    }
+    if (ctaRef.current) {
+      ctaRef.current.style.opacity = "1";
+    }
   }, []);
 
   useEffect(() => {
@@ -60,14 +58,13 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl text-center mb-12 opacity-0 text-balance"
+            className="text-3xl md:text-4xl text-center mb-12 text-balance"
           >
             Vi finns för att stora organisationer behöver tänka som små.
           </h2>
           
           <div 
             ref={textRef}
-            className="opacity-0"
           >
             <div className="glass-card p-8 md:p-12 mb-12">
               <p className="text-lg font-light mb-6">
@@ -90,7 +87,7 @@ const About = () => {
           
           <div 
             ref={ctaRef}
-            className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 opacity-0"
+            className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6"
           >
             <Link
               to="/#team"
