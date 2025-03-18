@@ -58,7 +58,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl text-center mb-12 text-balance"
+            className="text-3xl md:text-4xl text-center mb-12 text-balance text-canucci-dark"
           >
             Vi finns för att stora organisationer behöver tänka som små.
           </h2>
@@ -67,18 +67,18 @@ const About = () => {
             ref={textRef}
           >
             <div className="glass-card p-8 md:p-12 mb-12">
-              <p className="text-lg font-light mb-6">
+              <p className="text-lg font-light mb-6 text-canucci-dark">
                 Canucci grundades med en enkel idé:
                 <br />
                 <span className="text-xl font-normal">Organisationer som lyssnar – och agerar – vinner.</span>
               </p>
               
-              <p className="text-lg font-light mb-6">
+              <p className="text-lg font-light mb-6 text-canucci-dark">
                 Vi gör det möjligt att leda en global organisation som om den vore ett litet team. 
                 Med lyhördhet, klarhet och rörelse framåt.
               </p>
               
-              <p className="text-lg font-light mb-6">
+              <p className="text-lg font-light mb-6 text-canucci-dark">
                 Vår teknik är byggd in-house. Vår metod är testad i några av Nordens största bolag. 
                 Vi levererar alltid: Ägarskap, förändring, resultat.
               </p>
