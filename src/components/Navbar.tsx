@@ -1,10 +1,14 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../contexts/LanguageContext";
+import { Globe } from "lucide-react";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,74 +52,111 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-6">
             <a 
               href="#challenge" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
               onClick={(e) => scrollToSection('challenge', e)}
             >
-              Utmaningen
+              {t('navbar.challenge')}
             </a>
             <a 
               href="#solution" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
               onClick={(e) => scrollToSection('solution', e)}
             >
-              Lösningen
+              {t('navbar.solution')}
             </a>
             <a 
               href="#results" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
               onClick={(e) => scrollToSection('results', e)}
             >
-              Resultat
+              {t('navbar.results')}
             </a>
             <a 
               href="#about" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
               onClick={(e) => scrollToSection('about', e)}
             >
-              Om oss
+              {t('navbar.about')}
             </a>
-            <a
-              href="#footer"
-              className="px-6 py-2 rounded-full bg-canucci-dark text-white hover:bg-canucci-red transition-all-300 text-sm"
-              onClick={(e) => scrollToSection('footer', e)}
-            >
-              Kontakta oss
-            </a>
+            
+            <div className="flex items-center space-x-4">
+              <ToggleGroup 
+                type="single" 
+                value={language}
+                onValueChange={(value) => {
+                  if (value) setLanguage(value as 'sv' | 'en');
+                }}
+                className="border border-gray-200 rounded-full px-1 py-1"
+              >
+                <ToggleGroupItem value="sv" aria-label="Svenska" className="px-2 rounded-full text-xs">
+                  SV
+                </ToggleGroupItem>
+                <ToggleGroupItem value="en" aria-label="English" className="px-2 rounded-full text-xs">
+                  EN
+                </ToggleGroupItem>
+              </ToggleGroup>
+              
+              <a
+                href="#footer"
+                className="px-6 py-2 rounded-full bg-canucci-dark text-white hover:bg-canucci-red transition-all-300 text-sm"
+                onClick={(e) => scrollToSection('footer', e)}
+              >
+                {t('navbar.contact')}
+              </a>
+            </div>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-canucci-dark focus:outline-none"
-            aria-label={isMenuOpen ? "Stäng meny" : "Öppna meny"}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+          {/* Mobile menu button and language toggle */}
+          <div className="md:hidden flex items-center space-x-4">
+            <ToggleGroup 
+              type="single" 
+              value={language}
+              onValueChange={(value) => {
+                if (value) setLanguage(value as 'sv' | 'en');
+              }}
+              className="border border-gray-200 rounded-full px-1 py-1"
             >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+              <ToggleGroupItem value="sv" aria-label="Svenska" className="px-2 rounded-full text-xs">
+                SV
+              </ToggleGroupItem>
+              <ToggleGroupItem value="en" aria-label="English" className="px-2 rounded-full text-xs">
+                EN
+              </ToggleGroupItem>
+            </ToggleGroup>
+            
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-canucci-dark focus:outline-none"
+              aria-label={isMenuOpen ? "Stäng meny" : "Öppna meny"}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </nav>
       </div>
 
@@ -159,35 +200,35 @@ const Navbar = () => {
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
               onClick={(e) => scrollToSection('challenge', e)}
             >
-              Utmaningen
+              {t('navbar.challenge')}
             </a>
             <a
               href="#solution"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
               onClick={(e) => scrollToSection('solution', e)}
             >
-              Lösningen
+              {t('navbar.solution')}
             </a>
             <a
               href="#results"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
               onClick={(e) => scrollToSection('results', e)}
             >
-              Resultat
+              {t('navbar.results')}
             </a>
             <a
               href="#about"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
               onClick={(e) => scrollToSection('about', e)}
             >
-              Om oss
+              {t('navbar.about')}
             </a>
             <a
               href="#footer"
               className="mt-4 px-6 py-2 w-full text-center rounded-full bg-canucci-dark text-white hover:bg-canucci-red transition-all-300 text-xl"
               onClick={(e) => scrollToSection('footer', e)}
             >
-              Kontakta oss
+              {t('navbar.contact')}
             </a>
           </div>
         </div>

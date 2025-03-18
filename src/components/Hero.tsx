@@ -1,8 +1,10 @@
 
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -40,16 +42,15 @@ const Hero = () => {
             ref={titleRef}
             className="opacity-100 text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight mb-6 text-balance"
           >
-            Gör er strategi levande –
-            <span className="text-canucci-red"> genom dialog.</span>
+            {t('hero.title').split('–')[0]}–
+            <span className="text-canucci-red"> {t('hero.title').split('–')[1]}</span>
           </h1>
           
           <p
             ref={subtitleRef}
             className="opacity-100 text-lg md:text-xl font-light mb-12 max-w-3xl text-balance"
           >
-            Vi hjälper ledare få hela organisationen att förstå, vilja och agera – tillsammans. 
-            Med AI och vår metod Collective Discovery™ går förändring från ord till handling. Snabbt.
+            {t('hero.subtitle')}
           </p>
           
           <div
@@ -64,7 +65,7 @@ const Hero = () => {
                 document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              Låt oss visa hur
+              {t('hero.cta.show')}
             </a>
             <a
               href="#solution"
@@ -74,7 +75,7 @@ const Hero = () => {
                 document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              Så funkar det
+              {t('hero.cta.works')}
             </a>
           </div>
         </div>

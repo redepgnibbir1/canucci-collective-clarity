@@ -1,7 +1,9 @@
 
 import { Link } from "react-router-dom";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const scrollToSection = (sectionId: string, e: React.MouseEvent) => {
@@ -22,12 +24,12 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm font-light">
-              Vi hjälper ledare få hela organisationen att förstå, vilja och agera – tillsammans.
+              {t('hero.subtitle')}
             </p>
           </div>
           
           <div>
-            <h3 className="font-bold mb-4">Snabblänkar</h3>
+            <h3 className="font-bold mb-4">{t('footer.quicklinks')}</h3>
             <ul className="space-y-2">
               <li>
                 <a 
@@ -35,7 +37,7 @@ const Footer = () => {
                   className="text-sm font-light hover:text-canucci-red transition-all-300"
                   onClick={(e) => scrollToSection('challenge', e)}
                 >
-                  Utmaningen
+                  {t('navbar.challenge')}
                 </a>
               </li>
               <li>
@@ -44,7 +46,7 @@ const Footer = () => {
                   className="text-sm font-light hover:text-canucci-red transition-all-300"
                   onClick={(e) => scrollToSection('solution', e)}
                 >
-                  Lösningen
+                  {t('navbar.solution')}
                 </a>
               </li>
               <li>
@@ -53,7 +55,7 @@ const Footer = () => {
                   className="text-sm font-light hover:text-canucci-red transition-all-300"
                   onClick={(e) => scrollToSection('results', e)}
                 >
-                  Resultat
+                  {t('navbar.results')}
                 </a>
               </li>
               <li>
@@ -62,14 +64,14 @@ const Footer = () => {
                   className="text-sm font-light hover:text-canucci-red transition-all-300"
                   onClick={(e) => scrollToSection('about', e)}
                 >
-                  Om oss
+                  {t('navbar.about')}
                 </a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-bold mb-4">Kontakt</h3>
+            <h3 className="font-bold mb-4">{t('footer.contact')}</h3>
             <address className="not-italic text-sm font-light">
               <p>Email: <a href="mailto:info@canucci.se" className="hover:text-canucci-red transition-all-300">info@canucci.se</a></p>
               <p className="mt-4">Stockholm, Sverige</p>
@@ -79,7 +81,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm font-light mb-4 md:mb-0">
-            &copy; {currentYear} Canucci. Alla rättigheter förbehållna.
+            &copy; {currentYear} Canucci. {t('footer.rights')}
           </p>
           
           <div className="flex space-x-6">
