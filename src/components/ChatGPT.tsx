@@ -46,13 +46,14 @@ const ChatGPT = () => {
 
           <div
             ref={iframeRef}
-            className="opacity-0 aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden"
+            className="opacity-0 aspect-[16/9] w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl"
           >
             <iframe
-              src="https://chatgpt.com/g/g-67d8265dec4481919ff71e430000753f-canucci-marketing-gpt"
+              src="https://chat.openai.com/g/g-67d8265dec4481919ff71e430000753f-canucci-marketing-gpt"
               className="w-full h-[600px] border-0"
               allow="microphone; camera; fullscreen"
               title="Canucci Marketing GPT"
+              sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
             ></iframe>
           </div>
         </div>
