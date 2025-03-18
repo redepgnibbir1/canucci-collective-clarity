@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -36,36 +35,51 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
-            <Link 
-              to="/#challenge" 
+            <a 
+              href="#challenge" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
+              onClick={() => {
+                document.getElementById('challenge')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Utmaningen
-            </Link>
-            <Link 
-              to="/#solution" 
+            </a>
+            <a 
+              href="#solution" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
+              onClick={() => {
+                document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Lösningen
-            </Link>
-            <Link 
-              to="/#results" 
+            </a>
+            <a 
+              href="#results" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
+              onClick={() => {
+                document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Resultat
-            </Link>
-            <Link 
-              to="/#about" 
+            </a>
+            <a 
+              href="#about" 
               className="text-sm font-normal text-canucci-dark hover:text-canucci-red transition-all-300"
+              onClick={() => {
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Om oss
-            </Link>
-            <Link
-              to="/#contact"
+            </a>
+            <a
+              href="#contact"
               className="px-6 py-2 rounded-full bg-canucci-dark text-white hover:bg-canucci-red transition-all-300 text-sm"
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Kontakta oss
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -136,41 +150,61 @@ const Navbar = () => {
             </button>
           </div>
           <div className="flex flex-col space-y-8">
-            <Link
-              to="/#challenge"
+            <a
+              href="#challenge"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                document.getElementById('challenge')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Utmaningen
-            </Link>
-            <Link
-              to="/#solution"
+            </a>
+            <a
+              href="#solution"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Lösningen
-            </Link>
-            <Link
-              to="/#results"
+            </a>
+            <a
+              href="#results"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Resultat
-            </Link>
-            <Link
-              to="/#about"
+            </a>
+            <a
+              href="#about"
               className="text-xl font-light text-canucci-dark hover:text-canucci-red transition-all-300"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Om oss
-            </Link>
-            <Link
-              to="/#contact"
+            </a>
+            <a
+              href="#contact"
               className="mt-4 px-6 py-2 w-full text-center rounded-full bg-canucci-dark text-white hover:bg-canucci-red transition-all-300 text-xl"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Kontakta oss
-            </Link>
+            </a>
           </div>
         </div>
       </div>
