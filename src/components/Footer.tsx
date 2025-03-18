@@ -10,7 +10,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div>
             <Link to="/" className="inline-block mb-6" aria-label="Canucci">
-              <span className="text-2xl text-canucci-dark font-black">canucci</span>
+              <img 
+                src="/lovable-uploads/ad53f089-5215-446d-9d3f-94f43dc48965.png" 
+                alt="Canucci" 
+                className="h-8" 
+              />
             </Link>
             <p className="text-sm font-light">
               Vi hjälper ledare få hela organisationen att förstå, vilja och agera – tillsammans.

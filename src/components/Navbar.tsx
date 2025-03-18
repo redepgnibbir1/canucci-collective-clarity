@@ -24,10 +24,14 @@ const Navbar = () => {
         <nav className="flex items-center justify-between py-4">
           <Link 
             to="/" 
-            className="flex items-center space-x-2"
+            className="flex items-center"
             aria-label="Canucci"
           >
-            <span className="text-2xl text-canucci-dark font-black">canucci</span>
+            <img 
+              src="/lovable-uploads/ad53f089-5215-446d-9d3f-94f43dc48965.png" 
+              alt="Canucci" 
+              className="h-8 md:h-10" 
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -105,7 +109,11 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-6 py-8">
           <div className="flex justify-between items-center mb-8">
-            <span className="text-2xl text-canucci-dark font-black">canucci</span>
+            <img 
+              src="/lovable-uploads/ad53f089-5215-446d-9d3f-94f43dc48965.png" 
+              alt="Canucci" 
+              className="h-8" 
+            />
             <button
               onClick={() => setIsMenuOpen(false)}
               className="text-canucci-dark focus:outline-none"
