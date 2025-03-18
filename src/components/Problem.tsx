@@ -67,7 +67,7 @@ const Problem = () => {
           
           <p 
             ref={textRef}
-            className="text-lg font-light mb-12 text-balance"
+            className="text-lg font-light mb-12 text-balance text-center"
           >
             {t('problem.subtitle')}
           </p>
