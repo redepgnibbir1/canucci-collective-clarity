@@ -15,21 +15,6 @@ const Problem = () => {
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    // Start with everything visible
-    if (titleRef.current) {
-      titleRef.current.style.opacity = "1";
-    }
-    if (textRef.current) {
-      textRef.current.style.opacity = "1";
-    }
-    if (listRef.current) {
-      listRef.current.querySelectorAll('li').forEach(li => {
-        li.style.opacity = "1";
-      });
-    }
-  }, []);
-
-  useEffect(() => {
     if (inView) {
       setTimeout(() => {
         if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
@@ -60,14 +45,14 @@ const Problem = () => {
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl text-center mb-12 text-balance"
+            className="text-3xl md:text-4xl text-center mb-12 text-balance opacity-0"
           >
             {t('problem.title')}
           </h2>
           
           <p 
             ref={textRef}
-            className="text-lg font-light mb-12 text-balance text-center"
+            className="text-lg font-light mb-12 text-balance text-center opacity-0"
           >
             {t('problem.subtitle')}
           </p>
@@ -78,28 +63,28 @@ const Problem = () => {
             </p>
             
             <ul ref={listRef} className="space-y-6">
-              <li className="flex items-start">
+              <li className="flex items-start opacity-0">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">1</span>
                 </div>
                 <p className="text-lg font-light">{t('problem.issue1')}</p>
               </li>
               
-              <li className="flex items-start">
+              <li className="flex items-start opacity-0">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">2</span>
                 </div>
                 <p className="text-lg font-light">{t('problem.issue2')}</p>
               </li>
               
-              <li className="flex items-start">
+              <li className="flex items-start opacity-0">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">3</span>
                 </div>
                 <p className="text-lg font-light">{t('problem.issue3')}</p>
               </li>
               
-              <li className="flex items-start">
+              <li className="flex items-start opacity-0">
                 <div className="w-8 h-8 mr-4"></div>
                 <p className="text-lg font-normal text-canucci-dark">
                   {t('problem.conclusion')}
