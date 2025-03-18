@@ -57,11 +57,11 @@ const Hero = () => {
             className="opacity-100 flex flex-col sm:flex-row items-center gap-4 md:gap-6"
           >
             <a
-              href="#contact"
+              href="#solution"
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               Låt oss visa hur
