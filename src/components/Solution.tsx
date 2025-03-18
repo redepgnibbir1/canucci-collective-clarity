@@ -1,7 +1,6 @@
 
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { Link } from "react-router-dom";
 
 const Solution = () => {
   const { ref: sectionRef, inView } = useInView({
@@ -159,12 +158,23 @@ const Solution = () => {
           </div>
           
           <div ref={ctaRef} className="text-center">
-            <Link 
-              to="/#contact" 
+            <a 
+              href="#solution"
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"
+              onClick={(e) => {
+                e.preventDefault();
+                // Try to find the solution section in the navbar and click it
+                const navbarSolutionLink = document.querySelector('nav a[href="#solution"]');
+                if (navbarSolutionLink) {
+                  (navbarSolutionLink as HTMLElement).click();
+                } else {
+                  // Fallback: just scroll to solution section
+                  document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Läs mer om Collective Discovery™
-            </Link>
+            </a>
           </div>
         </div>
       </div>
