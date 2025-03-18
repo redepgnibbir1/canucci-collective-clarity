@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
@@ -26,6 +27,11 @@ const About = () => {
       }, 600);
     }
   }, [inView]);
+
+  const scrollToTeam = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section 
@@ -75,12 +81,13 @@ const About = () => {
             ref={ctaRef}
             className="opacity-100 flex flex-col sm:flex-row justify-center gap-4 md:gap-6"
           >
-            <Link
-              to="/#team"
+            <a
+              href="#team"
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 text-center"
+              onClick={scrollToTeam}
             >
               Träffa teamet
-            </Link>
+            </a>
             <Link
               to="/#contact"
               className="px-8 py-3 border border-canucci-dark text-canucci-dark hover:bg-canucci-dark hover:text-white rounded-full transition-all-300 text-center"
