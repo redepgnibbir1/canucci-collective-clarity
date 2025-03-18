@@ -78,6 +78,10 @@ const About = () => {
               <p className="text-lg font-light mb-6 text-canucci-dark">
                 Vår teknik är byggd in-house. Vår metod är testad i några av Nordens största bolag. 
                 Vi levererar alltid: Ägarskap, förändring, resultat.
+                Canucci är sprunget ur en 160 år lång historia av ansvarsfullt ägande och ständig
+                förändring, med Wallenbergstiftelserna som delägare.
+                Canucci  grundades av Oscar Stege Unger i Stockholm 2020 och har hittills inkluderat 
+                över 100 000 människor i dialogdriven förändring i 70 olika länder.
               </p>
             </div>
           </div>
