@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
@@ -14,31 +13,17 @@ const About = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Start with everything visible
-    if (titleRef.current) {
-      titleRef.current.style.opacity = "1";
-    }
-    if (textRef.current) {
-      textRef.current.style.opacity = "1";
-    }
-    if (ctaRef.current) {
-      ctaRef.current.style.opacity = "1";
-    }
-  }, []);
-
-  useEffect(() => {
     if (inView) {
+      // Add animation classes directly without modifying opacity
+      if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
+      
       setTimeout(() => {
-        if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
-        
-        setTimeout(() => {
-          if (textRef.current) textRef.current.classList.add("animate-fadeIn");
-        }, 300);
-        
-        setTimeout(() => {
-          if (ctaRef.current) ctaRef.current.classList.add("animate-fadeIn");
-        }, 600);
-      }, 100);
+        if (textRef.current) textRef.current.classList.add("animate-fadeIn");
+      }, 300);
+      
+      setTimeout(() => {
+        if (ctaRef.current) ctaRef.current.classList.add("animate-fadeIn");
+      }, 600);
     }
   }, [inView]);
 
@@ -58,13 +43,14 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl text-center mb-12 text-balance text-canucci-dark"
+            className="opacity-100 text-3xl md:text-4xl text-center mb-12 text-balance text-canucci-dark"
           >
             Vi finns för att stora organisationer behöver tänka som små.
           </h2>
           
           <div 
             ref={textRef}
+            className="opacity-100"
           >
             <div className="glass-card p-8 md:p-12 mb-12">
               <p className="text-lg font-light mb-6 text-canucci-dark">
@@ -87,7 +73,7 @@ const About = () => {
           
           <div 
             ref={ctaRef}
-            className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6"
+            className="opacity-100 flex flex-col sm:flex-row justify-center gap-4 md:gap-6"
           >
             <Link
               to="/#team"
