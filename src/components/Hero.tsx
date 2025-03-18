@@ -39,7 +39,7 @@ const Hero = () => {
             ref={titleRef}
             className="opacity-100 text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight mb-6 text-balance"
           >
-            Gör er strategi levande – genom dialog.
+            Gör er strategi levande –
             <span className="text-canucci-red"> genom dialog.</span>
           </h1>
           
