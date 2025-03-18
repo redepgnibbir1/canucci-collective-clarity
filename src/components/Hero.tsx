@@ -8,24 +8,24 @@ const Hero = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Animate elements when component mounts
-    if (titleRef.current) {
-      titleRef.current.classList.add("animate-slideDown");
-    }
-    if (subtitleRef.current) {
+    // Set a very short timeout to ensure DOM is fully rendered
+    setTimeout(() => {
+      if (titleRef.current) {
+        titleRef.current.classList.add("animate-slideDown");
+      }
+      
       setTimeout(() => {
         if (subtitleRef.current) {
           subtitleRef.current.classList.add("animate-slideUp");
         }
       }, 300);
-    }
-    if (ctaRef.current) {
+      
       setTimeout(() => {
         if (ctaRef.current) {
           ctaRef.current.classList.add("animate-fadeIn");
         }
       }, 600);
-    }
+    }, 100);
   }, []);
 
   return (

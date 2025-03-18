@@ -13,16 +13,30 @@ const Problem = () => {
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
+    // Add a default state with a small delay to prevent flickering
+    setTimeout(() => {
+      if (!inView && titleRef.current) {
+        titleRef.current.style.opacity = "0";
+      }
+      if (!inView && textRef.current) {
+        textRef.current.style.opacity = "0";
+      }
+    }, 50);
+  }, []);
+
+  useEffect(() => {
     if (inView) {
-      if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
-      
       setTimeout(() => {
-        if (textRef.current) textRef.current.classList.add("animate-fadeIn");
-      }, 200);
-      
-      setTimeout(() => {
-        if (listRef.current) listRef.current.classList.add("staggered-animation");
-      }, 400);
+        if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
+        
+        setTimeout(() => {
+          if (textRef.current) textRef.current.classList.add("animate-fadeIn");
+        }, 200);
+        
+        setTimeout(() => {
+          if (listRef.current) listRef.current.classList.add("staggered-animation");
+        }, 400);
+      }, 100);
     }
   }, [inView]);
 

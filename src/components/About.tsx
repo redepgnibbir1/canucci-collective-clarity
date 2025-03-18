@@ -14,16 +14,33 @@ const About = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Add a default state with a small delay to prevent flickering
+    setTimeout(() => {
+      if (!inView && titleRef.current) {
+        titleRef.current.style.opacity = "0";
+      }
+      if (!inView && textRef.current) {
+        textRef.current.style.opacity = "0";
+      }
+      if (!inView && ctaRef.current) {
+        ctaRef.current.style.opacity = "0";
+      }
+    }, 50);
+  }, []);
+
+  useEffect(() => {
     if (inView) {
-      if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
-      
       setTimeout(() => {
-        if (textRef.current) textRef.current.classList.add("animate-fadeIn");
-      }, 300);
-      
-      setTimeout(() => {
-        if (ctaRef.current) ctaRef.current.classList.add("animate-fadeIn");
-      }, 600);
+        if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
+        
+        setTimeout(() => {
+          if (textRef.current) textRef.current.classList.add("animate-fadeIn");
+        }, 300);
+        
+        setTimeout(() => {
+          if (ctaRef.current) ctaRef.current.classList.add("animate-fadeIn");
+        }, 600);
+      }, 100);
     }
   }, [inView]);
 
