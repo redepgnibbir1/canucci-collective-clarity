@@ -31,6 +31,14 @@ const Navbar = () => {
     }
   };
 
+  const scrollToTop = (event: React.MouseEvent) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -42,6 +50,7 @@ const Navbar = () => {
           <Link 
             to="/" 
             className="flex items-center"
+            onClick={scrollToTop}
             aria-label="Canucci"
           >
             <img 
@@ -168,11 +177,18 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-6 py-8">
           <div className="flex justify-between items-center mb-8">
-            <img 
-              src="/lovable-uploads/82acb93d-c744-47e0-97f5-5b8b492e7ccf.png" 
-              alt="Canucci" 
-              className="h-4" 
-            />
+            <div 
+              className="cursor-pointer"
+              onClick={(e) => {
+                scrollToTop(e as React.MouseEvent<HTMLDivElement>);
+              }}
+            >
+              <img 
+                src="/lovable-uploads/82acb93d-c744-47e0-97f5-5b8b492e7ccf.png" 
+                alt="Canucci" 
+                className="h-4" 
+              />
+            </div>
             <button
               onClick={() => setIsMenuOpen(false)}
               className="text-canucci-dark focus:outline-none"

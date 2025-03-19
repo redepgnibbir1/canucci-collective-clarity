@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -10,12 +11,17 @@ const Footer = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToTop = (event: React.MouseEvent) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer id="footer" className="bg-white border-t border-gray-100 py-12">
       <div className="container mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div>
-            <Link to="/" className="inline-block mb-6" aria-label="Canucci">
+            <Link to="/" className="inline-block mb-6" aria-label="Canucci" onClick={scrollToTop}>
               <img 
                 src="/lovable-uploads/82acb93d-c744-47e0-97f5-5b8b492e7ccf.png" 
                 alt="Canucci" 
