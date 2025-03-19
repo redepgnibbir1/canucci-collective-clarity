@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -45,7 +44,7 @@ const Navbar = () => {
             aria-label="Canucci"
           >
             <img 
-              src="/lovable-uploads/ad53f089-5215-446d-9d3f-94f43dc48965.png" 
+              src="/lovable-uploads/82acb93d-c744-47e0-97f5-5b8b492e7ccf.png" 
               alt="Canucci" 
               className="h-8 md:h-10" 
             />
@@ -169,7 +168,7 @@ const Navbar = () => {
         <div className="container mx-auto px-6 py-8">
           <div className="flex justify-between items-center mb-8">
             <img 
-              src="/lovable-uploads/ad53f089-5215-446d-9d3f-94f43dc48965.png" 
+              src="/lovable-uploads/82acb93d-c744-47e0-97f5-5b8b492e7ccf.png" 
               alt="Canucci" 
               className="h-8" 
             />

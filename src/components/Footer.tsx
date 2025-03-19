@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -18,7 +17,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="inline-block mb-6" aria-label="Canucci">
               <img 
-                src="/lovable-uploads/ad53f089-5215-446d-9d3f-94f43dc48965.png" 
+                src="/lovable-uploads/82acb93d-c744-47e0-97f5-5b8b492e7ccf.png" 
                 alt="Canucci" 
                 className="h-8" 
               />
