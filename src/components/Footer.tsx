@@ -79,6 +79,7 @@ const Footer = () => {
             <h3 className="font-bold mb-4">{t('footer.contact')}</h3>
             <address className="not-italic text-sm font-light">
               <p>Email: <a href="mailto:info@canucci.se" className="hover:text-canucci-red transition-all-300">info@canucci.se</a></p>
+              <p className="mt-2">CEO: <a href="mailto:ceo@canucci.com" className="hover:text-canucci-red transition-all-300">ceo@canucci.com</a></p>
               <p className="mt-4">Stockholm, Sverige</p>
             </address>
           </div>
