@@ -19,7 +19,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/82acb93d-c744-47e0-97f5-5b8b492e7ccf.png" 
                 alt="Canucci" 
-                className="h-8" 
+                className="h-4" 
               />
             </Link>
             <p className="text-sm font-light">

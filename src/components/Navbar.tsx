@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -46,7 +47,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/82acb93d-c744-47e0-97f5-5b8b492e7ccf.png" 
               alt="Canucci" 
-              className="h-8 md:h-10" 
+              className="h-4 md:h-5" 
             />
           </Link>
 
@@ -170,7 +171,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/82acb93d-c744-47e0-97f5-5b8b492e7ccf.png" 
               alt="Canucci" 
-              className="h-8" 
+              className="h-4" 
             />
             <button
               onClick={() => setIsMenuOpen(false)}
