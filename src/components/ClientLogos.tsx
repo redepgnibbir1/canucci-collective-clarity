@@ -59,12 +59,8 @@ const ClientLogos = () => {
       name: "Volati",
       src: "/lovable-uploads/420fe3a1-07e6-4e82-8300-ca6afdab2c01.png", 
       width: 150
-    },
-    { 
-      name: "Stockholms Handelskammare",
-      src: "/lovable-uploads/272ba243-86e6-47d6-86e9-31c29457d0cf.png", 
-      width: 220
     }
+    // Removed Stockholms Handelskammare logo
   ];
 
   return (
