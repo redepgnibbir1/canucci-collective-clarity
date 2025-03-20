@@ -54,9 +54,43 @@ const ClientLogos = () => {
       name: "Volati",
       src: "/lovable-uploads/420fe3a1-07e6-4e82-8300-ca6afdab2c01.png", 
       width: 150
+    },
+    // New logos
+    { 
+      name: "Nilfisk",
+      src: "/lovable-uploads/b3f2a6e4-06b1-41d1-baf2-033a278b6846.png", 
+      width: 180
+    },
+    { 
+      name: "SAAB",
+      src: "/lovable-uploads/a44ae8eb-4a37-439d-9272-bee4ba72968d.png", 
+      width: 190
+    },
+    { 
+      name: "Stockholm School of Economics",
+      src: "/lovable-uploads/e5012313-5bb7-4353-ad1e-76383195d19c.png", 
+      width: 140
+    },
+    { 
+      name: "SKF",
+      src: "/lovable-uploads/d1f6ab8c-16fe-4d86-9f83-fec4add1103a.png", 
+      width: 120
+    },
+    { 
+      name: "Teknikföretagen",
+      src: "/lovable-uploads/6bb2c639-b932-404f-984c-c9d0a4c47116.png", 
+      width: 200
+    },
+    { 
+      name: "Stockholms Handelskammare",
+      src: "/lovable-uploads/9b0ddcd1-3fdb-4c62-aece-2148256a98cc.png", 
+      width: 170
+    },
+    { 
+      name: "Wallenberg",
+      src: "/lovable-uploads/cee78ab9-e4bc-4b95-b44a-884a5d9d2e4d.png", 
+      width: 180
     }
-    // Removed Teknikföretagen logo
-    // Removed Stockholms Handelskammare logo
   ];
 
   return (
