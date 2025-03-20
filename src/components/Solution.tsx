@@ -15,39 +15,44 @@ const Solution = () => {
   const stepsRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
+  // Initialize elements with opacity: 0 to prevent flickering
   useEffect(() => {
-    // Start with everything visible
     if (titleRef.current) {
-      titleRef.current.style.opacity = "1";
+      titleRef.current.style.opacity = "0";
     }
     if (textRef.current) {
-      textRef.current.style.opacity = "1";
-    }
-    if (stepsRef.current) {
-      stepsRef.current.querySelectorAll('div.opacity-0').forEach(div => {
-        div.classList.remove('opacity-0');
-      });
+      textRef.current.style.opacity = "0";
     }
     if (ctaRef.current) {
-      ctaRef.current.style.opacity = "1";
+      ctaRef.current.style.opacity = "0";
     }
+    // Note: stepsRef children are already set to opacity: 0 via CSS
   }, []);
 
   useEffect(() => {
     if (inView) {
       setTimeout(() => {
-        if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
+        if (titleRef.current) {
+          titleRef.current.style.opacity = "1";
+          titleRef.current.classList.add("animate-slideDown");
+        }
         
         setTimeout(() => {
-          if (textRef.current) textRef.current.classList.add("animate-fadeIn");
+          if (textRef.current) {
+            textRef.current.style.opacity = "1";
+            textRef.current.classList.add("animate-fadeIn");
+          }
         }, 200);
         
         setTimeout(() => {
-          if (stepsRef.current) stepsRef.current.classList.add("staggered-animation");
+          if (stepsRef.current) stepsRef.current.classList.add("animate");
         }, 400);
         
         setTimeout(() => {
-          if (ctaRef.current) ctaRef.current.classList.add("animate-fadeIn");
+          if (ctaRef.current) {
+            ctaRef.current.style.opacity = "1";
+            ctaRef.current.classList.add("animate-fadeIn");
+          }
         }, 800);
       }, 100);
     }
@@ -57,7 +62,8 @@ const Solution = () => {
     <section 
       id="solution" 
       ref={sectionRef} 
-      className="section-padding relative bg-gradient-to-b from-gray-50 to-white"
+      className="section-padding relative bg-gradient-to-b from-canucci-peach/5 to-white"
+      aria-labelledby="solution-title"
     >
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -68,6 +74,7 @@ const Solution = () => {
       <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 
+            id="solution-title"
             ref={titleRef}
             className="text-3xl md:text-4xl text-center mb-8 text-balance"
           >
@@ -152,24 +159,22 @@ const Solution = () => {
               </div>
             </div>
             
+            {/* Either remove this or add content */}
             <p className="mt-10 text-lg italic">
-             
+              {t('solution.conclusion')}
             </p>
           </div>
           
           <div ref={ctaRef} className="text-center">
             <a 
-              href="#solution"
+              href="#contact"
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"
               onClick={(e) => {
                 e.preventDefault();
-                // Try to find the solution section in the navbar and click it
-                const navbarSolutionLink = document.querySelector('nav a[href="#solution"]');
-                if (navbarSolutionLink) {
-                  (navbarSolutionLink as HTMLElement).click();
-                } else {
-                  // Fallback: just scroll to solution section
-                  document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
+                // Navigate to contact section instead
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
             >

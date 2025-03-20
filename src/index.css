@@ -123,28 +123,37 @@
     100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
   }
 
+  /* Update the staggered animation to use opacity transitions */
   .staggered-animation > * {
     opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
 
   .staggered-animation > *:nth-child(1) {
-    animation: slideUp 0.6s 0.1s forwards;
+    transition-delay: 0.1s;
   }
 
   .staggered-animation > *:nth-child(2) {
-    animation: slideUp 0.6s 0.2s forwards;
+    transition-delay: 0.2s;
   }
 
   .staggered-animation > *:nth-child(3) {
-    animation: slideUp 0.6s 0.3s forwards;
+    transition-delay: 0.3s;
   }
 
   .staggered-animation > *:nth-child(4) {
-    animation: slideUp 0.6s 0.4s forwards;
+    transition-delay: 0.4s;
   }
 
   .staggered-animation > *:nth-child(5) {
-    animation: slideUp 0.6s 0.5s forwards;
+    transition-delay: 0.5s;
+  }
+
+  /* When the staggered-animation class is added, make children visible */
+  .staggered-animation.animate > * {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .staggered-animation > *:nth-child(6) {
