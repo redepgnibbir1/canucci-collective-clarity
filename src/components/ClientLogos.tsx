@@ -67,11 +67,6 @@ const ClientLogos = () => {
       width: 190
     },
     { 
-      name: "Stockholm School of Economics",
-      src: "/lovable-uploads/e5012313-5bb7-4353-ad1e-76383195d19c.png", 
-      width: 170
-    },
-    { 
       name: "SKF",
       src: "/lovable-uploads/d1f6ab8c-16fe-4d86-9f83-fec4add1103a.png", 
       width: 120
@@ -79,11 +74,6 @@ const ClientLogos = () => {
     { 
       name: "Teknikföretagen",
       src: "/lovable-uploads/6bb2c639-b932-404f-984c-c9d0a4c47116.png", 
-      width: 200
-    },
-    { 
-      name: "Stockholms Handelskammare",
-      src: "/lovable-uploads/9b0ddcd1-3fdb-4c62-aece-2148256a98cc.png", 
       width: 200
     },
     { 
