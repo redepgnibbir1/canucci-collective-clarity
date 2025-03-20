@@ -69,7 +69,7 @@ const ClientLogos = () => {
     { 
       name: "Stockholm School of Economics",
       src: "/lovable-uploads/e5012313-5bb7-4353-ad1e-76383195d19c.png", 
-      width: 140
+      width: 170
     },
     { 
       name: "SKF",
@@ -84,7 +84,7 @@ const ClientLogos = () => {
     { 
       name: "Stockholms Handelskammare",
       src: "/lovable-uploads/9b0ddcd1-3fdb-4c62-aece-2148256a98cc.png", 
-      width: 170
+      width: 200
     },
     { 
       name: "Wallenberg",
