@@ -46,11 +46,6 @@ const ClientLogos = () => {
       width: 180
     },
     { 
-      name: "Teknikföretagen",
-      src: "/lovable-uploads/ea4be464-d522-426d-8ef1-0c9299c3f8e2.png", 
-      width: 220
-    },
-    { 
       name: "Epiroc",
       src: "/lovable-uploads/400aadc0-9fda-4167-9c2a-eadff69ce482.png", 
       width: 160
@@ -60,6 +55,7 @@ const ClientLogos = () => {
       src: "/lovable-uploads/420fe3a1-07e6-4e82-8300-ca6afdab2c01.png", 
       width: 150
     }
+    // Removed Teknikföretagen logo
     // Removed Stockholms Handelskammare logo
   ];
 
