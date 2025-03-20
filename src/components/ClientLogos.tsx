@@ -55,7 +55,6 @@ const ClientLogos = () => {
       src: "/lovable-uploads/420fe3a1-07e6-4e82-8300-ca6afdab2c01.png", 
       width: 150
     },
-    // New logos
     { 
       name: "Nilfisk",
       src: "/lovable-uploads/b3f2a6e4-06b1-41d1-baf2-033a278b6846.png", 
@@ -80,6 +79,27 @@ const ClientLogos = () => {
       name: "Wallenberg",
       src: "/lovable-uploads/cee78ab9-e4bc-4b95-b44a-884a5d9d2e4d.png", 
       width: 180
+    },
+    // New logos
+    { 
+      name: "IMD International",
+      src: "/lovable-uploads/8fa48c3a-3bfc-436c-ac88-b2aec411ae11.png", 
+      width: 170
+    },
+    { 
+      name: "Sveriges Kommuner och Regioner",
+      src: "/lovable-uploads/c0433d94-e787-4147-838a-ecf7e8a3fe55.png", 
+      width: 220
+    },
+    { 
+      name: "Gaia",
+      src: "/lovable-uploads/be9a043a-351d-4329-b517-6df97b3de37c.png", 
+      width: 150
+    },
+    { 
+      name: "KTH",
+      src: "/lovable-uploads/dd9a55a4-d068-4c79-a7bb-7e89bf3da71c.png", 
+      width: 140
     }
   ];
 
