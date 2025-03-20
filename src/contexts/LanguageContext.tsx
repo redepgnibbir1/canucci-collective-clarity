@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'sv' | 'en';
@@ -242,6 +241,12 @@ const translations = {
   '404.button': {
     sv: 'Tillbaka till startsidan',
     en: 'Back to home page',
+  },
+
+  // Clients section
+  'clients.title': {
+    sv: 'Några av våra kunder',
+    en: 'Trusted by Leading Companies',
   },
 };
 

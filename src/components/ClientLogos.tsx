@@ -63,7 +63,7 @@ const ClientLogos = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto">
         <h2 className="text-2xl font-bold text-center mb-12">
-          {t('clients.title') || 'Trusted by Leading Companies'}
+          Några av våra kunder
         </h2>
         <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 lg:gap-12 px-4">
           {logos.map((logo, index) => (
