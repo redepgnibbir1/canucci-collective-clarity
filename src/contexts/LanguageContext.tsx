@@ -65,7 +65,7 @@ const translations = {
 
   // Problem
   'problem.title': {
-    sv: 'Det är inte strategin som saknas. Det är samsyn.',
+    sv: 'Det är inte strategin som saknas. Det är att komma samman och få den att hända.',
     en: 'It\'s not the strategy that\'s missing. It\'s alignment.',
   },
   'problem.subtitle': {
