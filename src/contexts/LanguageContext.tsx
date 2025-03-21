@@ -180,7 +180,39 @@ const translations = {
     sv: 'Lotta Lyrå, VD Södra',
     en: 'Lotta Lyrå, CEO Södra',
   },
+  'testimonials.quote4': {
+    sv: 'Collective Discovery™ har revolutionerat hur vi arbetar med strategi. Nu har vi en gemensam förståelse som driver oss framåt.',
+    en: 'Collective Discovery™ has revolutionized how we work with strategy. Now we have a shared understanding that drives us forward.',
+  },
+  'testimonials.author4': {
+    sv: 'Anna Bergström, VD Volvo Group',
+    en: 'Anna Bergström, CEO Volvo Group',
+  },
+  'testimonials.quote5': {
+    sv: 'Med Canucci fick vi en verktygslåda för att hantera komplexitet. Det har gjort oss mer effektiva och samstämmiga.',
+    en: 'With Canucci, we got a toolbox for handling complexity. It has made us more efficient and aligned.',
+  },
+  'testimonials.author5': {
+    sv: 'Martin Lundstedt, VD Scania',
+    en: 'Martin Lundstedt, CEO Scania',
+  },
+  'testimonials.quote6': {
+    sv: 'AI:n hjälper oss identifiera mönster vi annars skulle missa. Det har gett oss en helt ny nivå av insikt.',
+    en: 'The AI helps us identify patterns we would otherwise miss. It has given us a completely new level of insight.',
+  },
+  'testimonials.author6': {
+    sv: 'Erik Ekholm, VD Atlas Copco',
+    en: 'Erik Ekholm, CEO Atlas Copco',
+  },
   'testimonials.cta': {
+    sv: 'Se fler resultat',
+    en: 'See more results',
+  },
+  'testimonials.cta.less': {
+    sv: 'Visa färre resultat',
+    en: 'See less results',
+  },
+  'testimonials.cta.more': {
     sv: 'Se fler resultat',
     en: 'See more results',
   },
@@ -241,12 +273,6 @@ const translations = {
   '404.button': {
     sv: 'Tillbaka till startsidan',
     en: 'Back to home page',
-  },
-
-  // Clients section
-  'clients.title': {
-    sv: 'Några av våra kunder',
-    en: 'Trusted by Leading Companies',
   },
 };
 

@@ -1,12 +1,12 @@
-
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const Solution = () => {
   const { ref: sectionRef, inView } = useInView({
-    threshold: 0.1,
+    threshold: 0.3,
     triggerOnce: true,
+    rootMargin: '50px'
   });
   const { t } = useLanguage();
 
@@ -16,40 +16,23 @@ const Solution = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Start with everything visible
-    if (titleRef.current) {
-      titleRef.current.style.opacity = "1";
-    }
-    if (textRef.current) {
-      textRef.current.style.opacity = "1";
-    }
-    if (stepsRef.current) {
-      stepsRef.current.querySelectorAll('div.opacity-0').forEach(div => {
-        div.classList.remove('opacity-0');
-      });
-    }
-    if (ctaRef.current) {
-      ctaRef.current.style.opacity = "1";
-    }
-  }, []);
-
-  useEffect(() => {
     if (inView) {
-      setTimeout(() => {
-        if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
-        
-        setTimeout(() => {
-          if (textRef.current) textRef.current.classList.add("animate-fadeIn");
-        }, 200);
-        
-        setTimeout(() => {
-          if (stepsRef.current) stepsRef.current.classList.add("staggered-animation");
-        }, 400);
-        
-        setTimeout(() => {
-          if (ctaRef.current) ctaRef.current.classList.add("animate-fadeIn");
-        }, 800);
-      }, 100);
+      // Use a single animation sequence with proper timing
+      const sequence = [
+        { element: titleRef.current, animation: "animate-slideDown" },
+        { element: textRef.current, animation: "animate-fadeIn", delay: 200 },
+        { element: stepsRef.current, animation: "staggered-animation", delay: 400 },
+        { element: ctaRef.current, animation: "animate-fadeIn", delay: 800 }
+      ];
+
+      sequence.forEach(({ element, animation, delay = 0 }) => {
+        if (element) {
+          setTimeout(() => {
+            element.classList.remove('opacity-0');
+            element.classList.add(animation);
+          }, delay);
+        }
+      });
     }
   }, [inView]);
 
@@ -69,14 +52,14 @@ const Solution = () => {
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl text-center mb-8 text-balance"
+            className="opacity-0 text-3xl md:text-4xl text-center mb-8 text-balance"
           >
             {t('solution.title')}
           </h2>
           
           <p 
             ref={textRef}
-            className="text-lg font-light text-center mb-16 text-balance"
+            className="opacity-0 text-lg font-light text-center mb-16 text-balance"
           >
             {t('solution.subtitle')}
           </p>
@@ -86,7 +69,7 @@ const Solution = () => {
               {t('solution.process')}
             </p>
             
-            <div ref={stepsRef} className="space-y-10">
+            <div ref={stepsRef} className="opacity-0 space-y-10">
               <div className="flex items-start">
                 <div className="flex-shrink-0 mr-6">
                   <div className="w-10 h-10 rounded-full bg-canucci-dark flex items-center justify-center">
@@ -157,7 +140,7 @@ const Solution = () => {
             </p>
           </div>
           
-          <div ref={ctaRef} className="text-center">
+          <div ref={ctaRef} className="opacity-0 text-center">
             <a 
               href="#solution"
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"

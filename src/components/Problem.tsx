@@ -1,14 +1,13 @@
-
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const Problem = () => {
-  const [hasAnimated, setHasAnimated] = useState(false);
   const { ref: sectionRef, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.3,
     triggerOnce: true,
+    rootMargin: '50px'
   });
   const { t } = useLanguage();
 
@@ -17,47 +16,24 @@ const Problem = () => {
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    if (inView && !hasAnimated) {
-      setHasAnimated(true);
-      
-      // Ensure elements are visible even if animations don't work
-      if (titleRef.current) {
-        titleRef.current.style.opacity = "1";
-      }
-      if (textRef.current) {
-        textRef.current.style.opacity = "1";
-      }
-      
-      setTimeout(() => {
-        if (titleRef.current) {
-          titleRef.current.classList.add("animate-slideDown");
-          titleRef.current.classList.remove("opacity-0");
+    if (inView) {
+      // Use a single animation sequence with proper timing
+      const sequence = [
+        { element: titleRef.current, animation: "animate-slideDown" },
+        { element: textRef.current, animation: "animate-fadeIn", delay: 200 },
+        { element: listRef.current, animation: "staggered-animation", delay: 400 }
+      ];
+
+      sequence.forEach(({ element, animation, delay = 0 }) => {
+        if (element) {
+          setTimeout(() => {
+            element.classList.remove('opacity-0');
+            element.classList.add(animation);
+          }, delay);
         }
-        
-        setTimeout(() => {
-          if (textRef.current) {
-            textRef.current.classList.add("animate-fadeIn");
-            textRef.current.classList.remove("opacity-0");
-          }
-        }, 200);
-        
-        setTimeout(() => {
-          if (listRef.current) {
-            listRef.current.classList.add("staggered-animation");
-            
-            // Make all list items visible after animation
-            const listItems = listRef.current.querySelectorAll("li");
-            listItems.forEach((item, index) => {
-              setTimeout(() => {
-                item.classList.remove("opacity-0");
-                item.classList.add("opacity-100");
-              }, index * 150);
-            });
-          }
-        }, 400);
-      }, 100);
+      });
     }
-  }, [inView, hasAnimated]);
+  }, [inView]);
 
   return (
     <section 
@@ -77,8 +53,7 @@ const Problem = () => {
           ) : (
             <h2 
               ref={titleRef}
-              className="text-3xl md:text-4xl text-center mb-12 text-balance opacity-0 transition-all duration-700"
-              style={{ opacity: hasAnimated ? 1 : 0 }}
+              className="opacity-0 text-3xl md:text-4xl text-center mb-12 text-balance"
             >
               {t('problem.title')}
             </h2>
@@ -89,8 +64,7 @@ const Problem = () => {
           ) : (
             <p 
               ref={textRef}
-              className="text-lg font-light mb-12 text-balance text-center opacity-0 transition-all duration-700"
-              style={{ opacity: hasAnimated ? 1 : 0 }}
+              className="opacity-0 text-lg font-light mb-12 text-balance text-center"
             >
               {t('problem.subtitle')}
             </p>
@@ -101,41 +75,33 @@ const Problem = () => {
               {t('problem.intro')}
             </p>
             
-            <ul ref={listRef} className="space-y-6">
-              <li className="flex opacity-0 transition-all duration-500" style={{ opacity: hasAnimated ? 1 : 0 }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4">
+            <ul ref={listRef} className="opacity-0 space-y-6">
+              <li className="flex items-start">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">1</span>
                 </div>
-                <div className="mt-0.5">
-                  <p className="text-lg font-light">{t('problem.issue1')}</p>
-                </div>
+                <p className="text-lg font-light">{t('problem.issue1')}</p>
               </li>
               
-              <li className="flex opacity-0 transition-all duration-500" style={{ opacity: hasAnimated ? 1 : 0 }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4">
+              <li className="flex items-start">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">2</span>
                 </div>
-                <div className="mt-0.5">
-                  <p className="text-lg font-light">{t('problem.issue2')}</p>
-                </div>
+                <p className="text-lg font-light">{t('problem.issue2')}</p>
               </li>
               
-              <li className="flex opacity-0 transition-all duration-500" style={{ opacity: hasAnimated ? 1 : 0 }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4">
+              <li className="flex items-start">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
                   <span className="text-white font-bold">3</span>
                 </div>
-                <div className="mt-0.5">
-                  <p className="text-lg font-light">{t('problem.issue3')}</p>
-                </div>
+                <p className="text-lg font-light">{t('problem.issue3')}</p>
               </li>
               
-              <li className="flex opacity-0 transition-all duration-500" style={{ opacity: hasAnimated ? 1 : 0 }}>
+              <li className="flex items-start">
                 <div className="w-8 h-8 mr-4"></div>
-                <div className="mt-0.5">
-                  <p className="text-lg font-normal text-canucci-dark">
-                    {t('problem.conclusion')}
-                  </p>
-                </div>
+                <p className="text-lg font-normal text-canucci-dark">
+                  {t('problem.conclusion')}
+                </p>
               </li>
             </ul>
           </div>

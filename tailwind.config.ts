@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -81,6 +80,10 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			backgroundImage: {
+				'grid-pattern': 'linear-gradient(to right, #27363B 1px, transparent 1px), linear-gradient(to bottom, #27363B 1px, transparent 1px)',
+				'wave-pattern': 'url("data:image/svg+xml,%3Csvg width=\'100%25\' height=\'100%25\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 67.5C0 67.5 20 82.5 40 82.5C60 82.5 80 67.5 80 67.5V100H0V67.5Z\' fill=\'%2327363B\'/%3E%3C/svg%3E")'
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -121,17 +124,55 @@ export default {
 				pulse: {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
+				},
+				'gradient-mesh': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
+				},
+				'float-slow': {
+					'0%, 100%': { transform: 'translate(0, 0)' },
+					'25%': { transform: 'translate(10px, 10px)' },
+					'50%': { transform: 'translate(0, 20px)' },
+					'75%': { transform: 'translate(-10px, 10px)' }
+				},
+				'float-medium': {
+					'0%, 100%': { transform: 'translate(0, 0)' },
+					'25%': { transform: 'translate(-10px, -10px)' },
+					'50%': { transform: 'translate(0, -20px)' },
+					'75%': { transform: 'translate(10px, -10px)' }
+				},
+				'float-fast': {
+					'0%, 100%': { transform: 'translate(0, 0)' },
+					'25%': { transform: 'translate(15px, -15px)' },
+					'50%': { transform: 'translate(0, -30px)' },
+					'75%': { transform: 'translate(-15px, -15px)' }
+				},
+				'grid-flow': {
+					'0%': { backgroundPosition: '0 0' },
+					'100%': { backgroundPosition: '40px 40px' }
+				},
+				wave: {
+					'0%': { transform: 'translateX(0)' },
+					'50%': { transform: 'translateX(-25%)' },
+					'100%': { transform: 'translateX(0)' }
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				fadeIn: 'fadeIn 0.7s ease-in-out',
-				slideUp: 'slideUp 0.7s ease-out',
-				slideDown: 'slideDown 0.7s ease-out',
-				slideInLeft: 'slideInLeft 0.7s ease-out',
-				slideInRight: 'slideInRight 0.7s ease-out',
-				pulse: 'pulse 3s infinite'
+				'accordion-down': 'accordion-down 0.3s ease-out',
+				'accordion-up': 'accordion-up 0.3s ease-out',
+				fadeIn: 'fadeIn 0.5s ease-out',
+				slideUp: 'slideUp 0.5s ease-out',
+				slideDown: 'slideDown 0.5s ease-out',
+				slideInLeft: 'slideInLeft 0.5s ease-out',
+				slideInRight: 'slideInRight 0.5s ease-out',
+				pulse: 'pulse 3s infinite',
+				'gradient-mesh': 'gradient-mesh 15s ease infinite',
+				'float-slow': 'float-slow 8s ease-in-out infinite',
+				'float-medium': 'float-medium 6s ease-in-out infinite',
+				'float-fast': 'float-fast 4s ease-in-out infinite',
+				'grid-flow': 'grid-flow 20s linear infinite',
+				wave: 'wave 20s linear infinite'
 			}
 		}
 	},

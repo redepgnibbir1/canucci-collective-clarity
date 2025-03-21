@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -21,8 +20,9 @@ const teamMembers = [
 const Team = () => {
   const { t } = useLanguage();
   const { ref: sectionRef, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.3,
     triggerOnce: true,
+    rootMargin: '50px'
   });
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -31,15 +31,21 @@ const Team = () => {
 
   useEffect(() => {
     if (inView) {
-      if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
-      
-      setTimeout(() => {
-        if (teamRef.current) teamRef.current.classList.add("animate-fadeIn");
-      }, 300);
-      
-      setTimeout(() => {
-        if (textRef.current) textRef.current.classList.add("animate-fadeIn");
-      }, 600);
+      // Use a single animation sequence with proper timing
+      const sequence = [
+        { element: titleRef.current, animation: "animate-slideDown" },
+        { element: teamRef.current, animation: "animate-fadeIn", delay: 300 },
+        { element: textRef.current, animation: "animate-fadeIn", delay: 600 }
+      ];
+
+      sequence.forEach(({ element, animation, delay = 0 }) => {
+        if (element) {
+          setTimeout(() => {
+            element.classList.remove('opacity-0');
+            element.classList.add(animation);
+          }, delay);
+        }
+      });
     }
   }, [inView]);
 
@@ -49,24 +55,18 @@ const Team = () => {
       ref={sectionRef}
       className="section-padding relative bg-white"
     >
-      {/* Background wave pattern */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 left-0 w-80 h-80 bg-canucci-peach/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-20 right-0 w-80 h-80 bg-canucci-salmon/10 rounded-full filter blur-3xl"></div>
-      </div>
-
       <div className="container mx-auto relative z-10">
         <div className="max-w-5xl mx-auto">
           <h2
             ref={titleRef}
-            className="opacity-100 text-3xl md:text-4xl text-center mb-16 text-balance text-canucci-dark"
+            className="opacity-0 text-3xl md:text-4xl text-center mb-16 text-balance text-canucci-dark"
           >
             {t('team.title')}
           </h2>
 
           <div
             ref={teamRef}
-            className="opacity-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 mb-16"
+            className="opacity-0 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 mb-16"
           >
             {teamMembers.map((member) => (
               <div key={member.name} className="flex flex-col items-center">
@@ -84,7 +84,7 @@ const Team = () => {
 
           <p
             ref={textRef}
-            className="opacity-100 text-center text-lg font-light text-canucci-dark"
+            className="opacity-0 text-center text-lg font-light text-canucci-dark"
           >
             {t('team.contact')}{" "}
             <a href="mailto:info@canucci.com" className="text-canucci-red hover:underline">

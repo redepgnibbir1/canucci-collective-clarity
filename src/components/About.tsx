@@ -1,12 +1,12 @@
-
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const About = () => {
   const { ref: sectionRef, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.3,
     triggerOnce: true,
+    rootMargin: '50px'
   });
   const { t } = useLanguage();
 
@@ -16,16 +16,21 @@ const About = () => {
 
   useEffect(() => {
     if (inView) {
-      // Add animation classes directly without modifying opacity
-      if (titleRef.current) titleRef.current.classList.add("animate-slideDown");
-      
-      setTimeout(() => {
-        if (textRef.current) textRef.current.classList.add("animate-fadeIn");
-      }, 300);
-      
-      setTimeout(() => {
-        if (ctaRef.current) ctaRef.current.classList.add("animate-fadeIn");
-      }, 600);
+      // Use a single animation sequence with proper timing
+      const sequence = [
+        { element: titleRef.current, animation: "animate-slideDown" },
+        { element: textRef.current, animation: "animate-fadeIn", delay: 300 },
+        { element: ctaRef.current, animation: "animate-fadeIn", delay: 600 }
+      ];
+
+      sequence.forEach(({ element, animation, delay = 0 }) => {
+        if (element) {
+          setTimeout(() => {
+            element.classList.remove('opacity-0');
+            element.classList.add(animation);
+          }, delay);
+        }
+      });
     }
   }, [inView]);
 
@@ -45,24 +50,18 @@ const About = () => {
       ref={sectionRef} 
       className="section-padding relative bg-white"
     >
-      {/* Background wave pattern */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-20 right-0 w-80 h-80 bg-canucci-salmon/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-20 left-0 w-80 h-80 bg-canucci-peach/10 rounded-full filter blur-3xl"></div>
-      </div>
-
       <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 
             ref={titleRef}
-            className="opacity-100 text-3xl md:text-4xl text-center mb-12 text-balance text-canucci-dark"
+            className="opacity-0 text-3xl md:text-4xl text-center mb-12 text-balance text-canucci-dark"
           >
             {t('about.title')}
           </h2>
           
           <div 
             ref={textRef}
-            className="opacity-100"
+            className="opacity-0"
           >
             <div className="glass-card p-8 md:p-12 mb-12">
               <p className="text-lg font-light mb-6 text-canucci-dark">
@@ -85,7 +84,7 @@ const About = () => {
           
           <div 
             ref={ctaRef}
-            className="opacity-100 flex flex-col sm:flex-row justify-center gap-4 md:gap-6"
+            className="opacity-0 flex flex-col sm:flex-row justify-center gap-4 md:gap-6"
           >
             <a
               href="#team"

@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -6,9 +5,11 @@ import { useLanguage } from "../contexts/LanguageContext";
 const Testimonials = () => {
   const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showAll, setShowAll] = useState(false);
   const { ref: sectionRef, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
+    threshold: 0.3,
+    triggerOnce: true,
+    rootMargin: '50px'
   });
 
   const testimonials = [
@@ -23,6 +24,18 @@ const Testimonials = () => {
     {
       quote: t('testimonials.quote3'),
       author: t('testimonials.author3')
+    },
+    {
+      quote: t('testimonials.quote4'),
+      author: t('testimonials.author4')
+    },
+    {
+      quote: t('testimonials.quote5'),
+      author: t('testimonials.author5')
+    },
+    {
+      quote: t('testimonials.quote6'),
+      author: t('testimonials.author6')
     }
   ];
 
@@ -32,41 +45,36 @@ const Testimonials = () => {
 
   useEffect(() => {
     if (inView) {
-      setTimeout(() => {
-        if (titleRef.current) {
-          titleRef.current.style.opacity = "1";
-          titleRef.current.classList.add("animate-slideDown");
+      // Use a single animation sequence with proper timing
+      const sequence = [
+        { element: titleRef.current, animation: "animate-slideDown" },
+        { element: testimonialRef.current, animation: "animate-fadeIn", delay: 300 },
+        { element: ctaRef.current, animation: "animate-fadeIn", delay: 600 }
+      ];
+
+      sequence.forEach(({ element, animation, delay = 0 }) => {
+        if (element) {
+          setTimeout(() => {
+            element.classList.remove('opacity-0');
+            element.classList.add(animation);
+          }, delay);
         }
-        
-        setTimeout(() => {
-          if (testimonialRef.current) {
-            testimonialRef.current.style.opacity = "1";
-            testimonialRef.current.classList.add("animate-fadeIn");
-          }
-        }, 300);
-        
-        setTimeout(() => {
-          if (ctaRef.current) {
-            ctaRef.current.style.opacity = "1";
-            ctaRef.current.classList.add("animate-fadeIn");
-          }
-        }, 600);
-      }, 100);
+      });
     }
   }, [inView]);
 
   useEffect(() => {
     // Auto-rotate testimonials
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % testimonials.length);
+      setActiveIndex((current) => (current + 1) % (showAll ? testimonials.length : 3));
     }, 6000);
     
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [testimonials.length, showAll]);
 
-  const scrollToFooter = (e: React.MouseEvent) => {
-    e.preventDefault();
-    document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+    setActiveIndex(0); // Reset to first testimonial when toggling
   };
 
   return (
@@ -84,14 +92,14 @@ const Testimonials = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 
             ref={titleRef}
-            className="text-3xl md:text-4xl mb-16 opacity-0 text-balance transition-opacity duration-500"
+            className="opacity-0 text-3xl md:text-4xl mb-16 text-balance"
           >
             {t('testimonials.title')}
           </h2>
           
           <div 
             ref={testimonialRef}
-            className="glass-card p-8 md:p-16 mb-12 opacity-0 transition-opacity duration-500"
+            className="opacity-0 glass-card p-8 md:p-16 mb-12"
           >
             <div className="relative h-48">
               {testimonials.map((testimonial, idx) => (
@@ -112,7 +120,7 @@ const Testimonials = () => {
             </div>
             
             <div className="flex justify-center space-x-2 mt-8">
-              {testimonials.map((_, idx) => (
+              {testimonials.slice(0, showAll ? testimonials.length : 3).map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
@@ -125,14 +133,13 @@ const Testimonials = () => {
             </div>
           </div>
           
-          <div ref={ctaRef} className="opacity-0 transition-opacity duration-500">
-            <a 
-              href="#footer" 
+          <div ref={ctaRef} className="opacity-0">
+            <button 
+              onClick={toggleShowAll}
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"
-              onClick={scrollToFooter}
             >
-              {t('testimonials.cta')}
-            </a>
+              {showAll ? t('testimonials.cta.less') : t('testimonials.cta.more')}
+            </button>
           </div>
         </div>
       </div>
