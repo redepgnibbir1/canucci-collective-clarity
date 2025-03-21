@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'sv' | 'en';
@@ -190,7 +189,7 @@ const translations = {
     en: 'CEO Industrial company group',
   },
   'testimonials.quote5': {
-    sv: 'Med Canucci fick vi en verktygslåda för att hantera komplexitet. Det har gjort oss mer effektiva och samstämmiga.',
+    sv: 'Med Canucci fick vi en verktygslåda för att hantera komplexitet.',
     en: 'With Canucci, we got a toolbox for handling complexity. It has made us more efficient and aligned.',
   },
   'testimonials.author5': {
