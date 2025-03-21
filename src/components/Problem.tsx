@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -76,28 +77,28 @@ const Problem = () => {
             </p>
             
             <ul ref={listRef} className="opacity-0 space-y-6">
-              <li className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
+              <li className="flex items-center">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4">
                   <span className="text-white font-bold">1</span>
                 </div>
                 <p className="text-lg font-light">{t('problem.issue1')}</p>
               </li>
               
-              <li className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
+              <li className="flex items-center">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4">
                   <span className="text-white font-bold">2</span>
                 </div>
                 <p className="text-lg font-light">{t('problem.issue2')}</p>
               </li>
               
-              <li className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4 mt-1">
+              <li className="flex items-center">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-canucci-red flex items-center justify-center mr-4">
                   <span className="text-white font-bold">3</span>
                 </div>
                 <p className="text-lg font-light">{t('problem.issue3')}</p>
               </li>
               
-              <li className="flex items-start">
+              <li className="flex items-center">
                 <div className="w-8 h-8 mr-4"></div>
                 <p className="text-lg font-normal text-canucci-dark">
                   {t('problem.conclusion')}
