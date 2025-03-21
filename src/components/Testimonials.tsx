@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -5,7 +6,6 @@ import { useLanguage } from "../contexts/LanguageContext";
 const Testimonials = () => {
   const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showAll, setShowAll] = useState(false);
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true,
@@ -32,24 +32,18 @@ const Testimonials = () => {
     {
       quote: t('testimonials.quote5'),
       author: t('testimonials.author5')
-    },
-    {
-      quote: t('testimonials.quote6'),
-      author: t('testimonials.author6')
     }
   ];
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const testimonialRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (inView) {
       // Use a single animation sequence with proper timing
       const sequence = [
         { element: titleRef.current, animation: "animate-slideDown" },
-        { element: testimonialRef.current, animation: "animate-fadeIn", delay: 300 },
-        { element: ctaRef.current, animation: "animate-fadeIn", delay: 600 }
+        { element: testimonialRef.current, animation: "animate-fadeIn", delay: 300 }
       ];
 
       sequence.forEach(({ element, animation, delay = 0 }) => {
@@ -66,16 +60,11 @@ const Testimonials = () => {
   useEffect(() => {
     // Auto-rotate testimonials
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % (showAll ? testimonials.length : 3));
+      setActiveIndex((current) => (current + 1) % testimonials.length);
     }, 6000);
     
     return () => clearInterval(interval);
-  }, [testimonials.length, showAll]);
-
-  const toggleShowAll = () => {
-    setShowAll(!showAll);
-    setActiveIndex(0); // Reset to first testimonial when toggling
-  };
+  }, [testimonials.length]);
 
   return (
     <section 
@@ -120,7 +109,7 @@ const Testimonials = () => {
             </div>
             
             <div className="flex justify-center space-x-2 mt-8">
-              {testimonials.slice(0, showAll ? testimonials.length : 3).map((_, idx) => (
+              {testimonials.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
@@ -131,15 +120,6 @@ const Testimonials = () => {
                 ></button>
               ))}
             </div>
-          </div>
-          
-          <div ref={ctaRef} className="opacity-0">
-            <button 
-              onClick={toggleShowAll}
-              className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"
-            >
-              {showAll ? t('testimonials.cta.less') : t('testimonials.cta.more')}
-            </button>
           </div>
         </div>
       </div>
