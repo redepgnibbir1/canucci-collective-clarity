@@ -190,7 +190,7 @@ const translations = {
   },
   'testimonials.quote5': {
     sv: 'Med Canucci fick vi en verktygslåda för att hantera komplexitet.',
-    en: 'With Canucci, we got a toolbox for handling complexity. It has made us more efficient and aligned.',
+    en: 'With Canucci, we got a toolbox for handling complexity.',
   },
   'testimonials.author5': {
     sv: 'VD Globalt industriföretag',
