@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -110,19 +111,19 @@ const Navbar = () => {
                 onValueChange={(value) => {
                   if (value) setLanguage(value as 'sv' | 'en');
                 }}
-                className="border border-gray-200 rounded-full px-1 py-1 transition-all duration-300 hover:border-canucci-red"
+                className="border border-gray-200 rounded-full h-9 px-1 flex items-center transition-all duration-300 hover:border-canucci-red"
               >
                 <ToggleGroupItem 
                   value="sv" 
                   aria-label="Svenska" 
-                  className="px-2 rounded-full text-xs transition-all duration-300 hover:text-canucci-red"
+                  className="px-2 rounded-full text-xs h-7 transition-all duration-300 hover:text-canucci-red"
                 >
                   SV
                 </ToggleGroupItem>
                 <ToggleGroupItem 
                   value="en" 
                   aria-label="English" 
-                  className="px-2 rounded-full text-xs transition-all duration-300 hover:text-canucci-red"
+                  className="px-2 rounded-full text-xs h-7 transition-all duration-300 hover:text-canucci-red"
                 >
                   EN
                 </ToggleGroupItem>
@@ -130,7 +131,7 @@ const Navbar = () => {
               
               <a
                 href="#footer"
-                className="px-6 py-2 rounded-full bg-canucci-dark text-white hover:bg-canucci-red transition-all-300 text-sm transform hover:scale-105 hover:shadow-lg"
+                className="px-6 py-2 h-9 flex items-center justify-center rounded-full bg-canucci-dark text-white hover:bg-canucci-red transition-all-300 text-sm transform hover:scale-105 hover:shadow-lg"
                 onClick={(e) => scrollToSection('footer', e)}
               >
                 {t('navbar.contact')}
@@ -146,19 +147,19 @@ const Navbar = () => {
               onValueChange={(value) => {
                 if (value) setLanguage(value as 'sv' | 'en');
               }}
-              className="border border-gray-200 rounded-full px-1 py-1 transition-all duration-300 hover:border-canucci-red"
+              className="border border-gray-200 rounded-full h-9 px-1 flex items-center transition-all duration-300 hover:border-canucci-red"
             >
               <ToggleGroupItem 
                 value="sv" 
                 aria-label="Svenska" 
-                className="px-2 rounded-full text-xs transition-all duration-300 hover:text-canucci-red"
+                className="px-2 rounded-full text-xs h-7 transition-all duration-300 hover:text-canucci-red"
               >
                 SV
               </ToggleGroupItem>
               <ToggleGroupItem 
                 value="en" 
                 aria-label="English" 
-                className="px-2 rounded-full text-xs transition-all duration-300 hover:text-canucci-red"
+                className="px-2 rounded-full text-xs h-7 transition-all duration-300 hover:text-canucci-red"
               >
                 EN
               </ToggleGroupItem>
