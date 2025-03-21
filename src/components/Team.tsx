@@ -4,6 +4,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 
 // Team member data
 const teamMembers = [
+  {name: "Ellen", image: "/lovable-uploads/0ead8737-88fb-45b5-a4ae-0c9e5a59e631.png" },
   { name: "Victor", image: "/lovable-uploads/2081093a-4927-4e9a-9252-7b28fa1fd344.png" },
   { name: "Kye", image: "/lovable-uploads/a19275f8-e3e3-40f4-b0cf-bffa69626ee6.png" },
   { name: "Oscar", image: "/lovable-uploads/c2b1b111-9435-4485-9c87-ee15f502f753.png" },
@@ -14,7 +15,6 @@ const teamMembers = [
   { name: "Peder", image: "/lovable-uploads/8204bfcf-dbf1-4814-8874-d67846dab169.png" },
   { name: "Magdalena", image: "/lovable-uploads/9f880c76-b64d-4a9f-b622-3833571fe410.png" },
   { name: "Daniel", image: "/lovable-uploads/588ac510-60be-4b70-8912-f16709ff14f4.png" },
-  { name: "Ellen", image: "/lovable-uploads/0ead8737-88fb-45b5-a4ae-0c9e5a59e631.png" },
 ];
 
 const Team = () => {
