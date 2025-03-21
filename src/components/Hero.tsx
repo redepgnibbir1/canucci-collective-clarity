@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -68,6 +69,35 @@ const Hero = () => {
     return `translate(${x * 30 * intensity}px, ${y * 30 * intensity}px)`;
   };
 
+  // Format the title to highlight "genom dialog" in a different color
+  const formatTitle = (title: string) => {
+    // Check if the title contains "genom dialog"
+    if (title.includes("genom dialog")) {
+      const parts = title.split("genom dialog");
+      return (
+        <>
+          {parts[0]}
+          <span className="text-[#EA4960]">genom dialog</span>
+          {parts[1]}
+        </>
+      );
+    }
+    
+    // For more specific handling with punctuation
+    if (title.includes("genom dialog.")) {
+      const parts = title.split("genom dialog.");
+      return (
+        <>
+          {parts[0]}
+          <span className="text-[#EA4960]">genom dialog.</span>
+          {parts[1] || ""}
+        </>
+      );
+    }
+    
+    return title;
+  };
+
   return (
     <section 
       ref={sectionRef}
@@ -133,7 +163,7 @@ const Hero = () => {
             ref={titleRef}
             className="opacity-0 text-4xl md:text-6xl font-black mb-8 text-balance cursor-default"
           >
-            {t('hero.title')}
+            {formatTitle(t('hero.title'))}
           </h1>
           
           <p 
