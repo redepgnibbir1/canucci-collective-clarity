@@ -92,7 +92,7 @@ const Footer = () => {
           
           <div className="flex space-x-6">
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/company/canucci/posts/?feedView=all" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-500 hover:text-canucci-red transition-all-300"
