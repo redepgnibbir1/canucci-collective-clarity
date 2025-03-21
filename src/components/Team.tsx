@@ -8,7 +8,7 @@ const teamMembers = [
   { name: "Victor", image: "/lovable-uploads/2081093a-4927-4e9a-9252-7b28fa1fd344.png" },
   { name: "Kye", image: "/lovable-uploads/a19275f8-e3e3-40f4-b0cf-bffa69626ee6.png" },
   { name: "Oscar", image: "/lovable-uploads/c2b1b111-9435-4485-9c87-ee15f502f753.png" },
-  { name: "Stephan", image: "/lovable-uploads/525d9606-48a8-45ab-8d10-93e0ecf71f35.png" },
+  { name: "Stefan", image: "/lovable-uploads/525d9606-48a8-45ab-8d10-93e0ecf71f35.png" },
   { name: "Alice", image: "/lovable-uploads/3199ad2d-e11c-4cb8-b1d5-d8f9020a85f0.png" },
   { name: "Olivia", image: "/lovable-uploads/cb138d87-62c0-4507-8143-4ff5270ebb31.png" },
   { name: "Camilla", image: "/lovable-uploads/d8bd5227-5ba9-4635-b6c1-3628ccd93c05.png" },
