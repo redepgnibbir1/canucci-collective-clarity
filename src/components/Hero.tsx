@@ -136,24 +136,6 @@ const Hero = () => {
             transition: 'transform 0.3s ease-out'
           }}
         ></div>
-        
-        {/* Animated Grid Pattern */}
-        <div 
-          className="absolute inset-0 bg-grid-pattern opacity-5 animate-grid-flow"
-          style={{ 
-            transform: getTransform(mousePosition.x, mousePosition.y, 0.3),
-            transition: 'transform 0.3s ease-out'
-          }}
-        ></div>
-        
-        {/* Animated Wave Pattern */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 h-32 bg-wave-pattern opacity-10 animate-wave"
-          style={{ 
-            transform: getTransform(mousePosition.x, mousePosition.y, 0.4),
-            transition: 'transform 0.3s ease-out'
-          }}
-        ></div>
       </div>
 
       {/* Content */}
