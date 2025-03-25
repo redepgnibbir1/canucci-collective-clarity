@@ -215,7 +215,7 @@ const translations = {
     en: 'We make it possible to lead a global organization as if it were a small team. With responsiveness, clarity, and forward movement.',
   },
   'about.paragraph2': {
-    sv: 'Vår teknik är byggd in-house. Vår metod är testad i några av Nordens största bolag. Vi levererar alltid: Ägarskap, förändring, resultat. Canucci är sprunget ur en 160 år lång historia av ansvarsfullt ägande och ständig förändring, med Wallenbergstiftelserna som delägare.',
+    sv: 'Vår teknik är byggd in-house. Vår metod är testad i några av Nordens största bolag. Vi levererar alltid: Ägarskap, förändring, resultat. Canucci är sprunget ur en 160 år lång historia av ansvarsfullt ägande och ständig förändring, med Wallenbergstiftelserna som delägare. ',
     en: 'Our technology is built in-house. Our method has been tested in some of the largest companies in the Nordics. We always deliver: Ownership, change, results. Canucci springs from a 160-year history of responsible ownership and constant change, with the Wallenberg Foundations as co-owners.',
   },
   'about.paragraph3': {
