@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -19,7 +18,6 @@ const Solution = () => {
 
   useEffect(() => {
     if (inView) {
-      // Use a single animation sequence with proper timing
       const sequence = [
         { element: titleRef.current, animation: "animate-slideDown" },
         { element: textRef.current, animation: "animate-fadeIn", delay: 200 },
@@ -45,7 +43,6 @@ const Solution = () => {
       ref={sectionRef} 
       className="section-padding relative bg-gradient-to-b from-gray-50 to-white"
     >
-      {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 -left-40 w-80 h-80 bg-canucci-salmon/10 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-20 -right-40 w-80 h-80 bg-canucci-peach/10 rounded-full filter blur-3xl"></div>
@@ -138,7 +135,6 @@ const Solution = () => {
               </div>
             </div>
             
-            {/* Product image showing text analysis */}
             <div ref={imageRef} className="opacity-0 mt-12">
               <div className="rounded-lg overflow-hidden shadow-xl">
                 <img 
@@ -148,7 +144,7 @@ const Solution = () => {
                 />
               </div>
               <p className="text-center text-sm text-gray-500 mt-3 italic">
-                {t('solution.image.caption') || 'Vår textanalysplattform visualiserar viktiga teman och insikter från hela organisationen.'}
+                {t('solution.image.caption')}
               </p>
             </div>
             
@@ -163,12 +159,10 @@ const Solution = () => {
               className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"
               onClick={(e) => {
                 e.preventDefault();
-                // Try to find the solution section in the navbar and click it
                 const navbarSolutionLink = document.querySelector('nav a[href="#solution"]');
                 if (navbarSolutionLink) {
                   (navbarSolutionLink as HTMLElement).click();
                 } else {
-                  // Fallback: just scroll to solution section
                   document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
