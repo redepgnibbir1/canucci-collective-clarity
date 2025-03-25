@@ -75,7 +75,6 @@ const ClientLogos = () => {
       src: "/lovable-uploads/8c85218b-f745-4269-a69e-36444b6704e1.png",
       width: 160
     },
-    // Adding the new logos
     { 
       name: "Volati",
       src: "/lovable-uploads/0f24431b-2b28-4e86-8ed2-37db14725133.png",
@@ -100,6 +99,17 @@ const ClientLogos = () => {
       name: "IPCO",
       src: "/lovable-uploads/02cda927-9beb-4352-a62e-7dc6948017d1.png",
       width: 120
+    },
+    // Adding the new logos
+    { 
+      name: "Sveriges Kommuner och Regioner",
+      src: "/lovable-uploads/325c58c0-38fa-4872-8b3a-eeac66430570.png",
+      width: 150
+    },
+    { 
+      name: "Wallenberg Investments AB",
+      src: "/lovable-uploads/49f9cf47-bafe-4471-8d29-207f765fc298.png",
+      width: 180
     },
   ];
 
