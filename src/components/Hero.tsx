@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { ref: sectionRef, inView } = useInView({
@@ -69,10 +69,10 @@ const Hero = () => {
     return `translate(${x * 30 * intensity}px, ${y * 30 * intensity}px)`;
   };
 
-  // Format the title to highlight "genom dialog" in a different color
+  // Format the title to highlight specific phrases in both languages
   const formatTitle = (title: string) => {
-    // Check if the title contains "genom dialog"
-    if (title.includes("genom dialog")) {
+    // Check for Swedish version
+    if (language === 'sv' && title.includes("genom dialog")) {
       const parts = title.split("genom dialog");
       return (
         <>
@@ -83,13 +83,37 @@ const Hero = () => {
       );
     }
     
-    // For more specific handling with punctuation
-    if (title.includes("genom dialog.")) {
+    // Check for English version 
+    if (language === 'en' && title.includes("through dialogue")) {
+      const parts = title.split("through dialogue");
+      return (
+        <>
+          {parts[0]}
+          <span className="text-[#EA4960]">through dialogue</span>
+          {parts[1]}
+        </>
+      );
+    }
+    
+    // Handle period variations for Swedish
+    if (language === 'sv' && title.includes("genom dialog.")) {
       const parts = title.split("genom dialog.");
       return (
         <>
           {parts[0]}
           <span className="text-[#EA4960]">genom dialog.</span>
+          {parts[1] || ""}
+        </>
+      );
+    }
+    
+    // Handle period variations for English
+    if (language === 'en' && title.includes("through dialogue.")) {
+      const parts = title.split("through dialogue.");
+      return (
+        <>
+          {parts[0]}
+          <span className="text-[#EA4960]">through dialogue.</span>
           {parts[1] || ""}
         </>
       );
