@@ -66,7 +66,7 @@ const translations = {
   // Problem
   'problem.title': {
     sv: 'Det är inte strategin som saknas. Det är att komma samman och få den att hända.',
-    en: 'It\'s not the strategy that\'s missing. It\'s alignment.',
+    en: 'It\'s not the strategy that\'s missing. It\'s coming together and making it happen.',
   },
   'problem.subtitle': {
     sv: 'Stora organisationer drunknar i information, silos och motstridiga perspektiv. Resultatet? Strategier som låter bra – men aldrig riktigt lyfter.',
@@ -112,11 +112,11 @@ const translations = {
   },
   'solution.step1.description': {
     sv: 'Med vårt egenutvecklade intervjuverktyg kan alla uttrycka sin mening.',
-    en: 'Simple digital survey where each employee can express their opinion.',
+    en: 'With our in-house developed interview tool, everyone can express their opinion.',
   },
   'solution.step2.title': {
     sv: 'AI analyserar och visar vad som är viktigast.',
-    en: 'AI analyzes and shows what matters most.',
+    en: 'AI analyzes and shows what is most important.',
   },
   'solution.step2.description': {
     sv: 'Vår specialutvecklade AI identifierar mönster och prioriteringar.',
@@ -128,7 +128,7 @@ const translations = {
   },
   'solution.step3.description': {
     sv: 'Tillsammans tar vi fram en handlingsplan.',
-    en: 'Workshop where the management team creates an action plan based on insights.',
+    en: 'Together we create an action plan.',
   },
   'solution.step4.title': {
     sv: 'Varje individ väljer sitt ansvar.',
@@ -136,7 +136,7 @@ const translations = {
   },
   'solution.step4.description': {
     sv: 'Alla kan bidra efter sina förutsättningar, vilket skapar ägarskap.',
-    en: 'Everyone can contribute according to their abilities, creating ownership.',
+    en: 'Everyone can contribute according to their abilities, which creates ownership.',
   },
   'solution.step5.title': {
     sv: 'Vi följer upp. Vi firar framsteg. Dialogen fortsätter.',
@@ -158,7 +158,7 @@ const translations = {
   },
   'testimonials.quote1': {
     sv: 'Vi såg en helt ny nivå av enighet bland våra ledare. Alla visste vad vi skulle göra – och hur.',
-    en: 'We saw a completely new level of unity among our leaders. Everyone knew what to do – and how.',
+    en: 'We saw a completely new level of unity among our leaders. Everyone knew what we should do – and how.',
   },
   'testimonials.author1': {
     sv: 'VD, global industrikoncern',
@@ -216,7 +216,7 @@ const translations = {
   },
   'about.paragraph2': {
     sv: 'Vår teknik är byggd in-house. Vår metod är testad i några av Nordens största bolag. Vi levererar alltid: Ägarskap, förändring, resultat. Canucci är sprunget ur en 160 år lång historia av ansvarsfullt ägande och ständig förändring, med Wallenbergstiftelserna som delägare. ',
-    en: 'Our technology is built in-house. Our method has been tested in some of the largest companies in the Nordics. We always deliver: Ownership, change, results. Canucci springs from a 160-year history of responsible ownership and constant change, with the Wallenberg Foundations as co-owners.',
+    en: 'Our technology is built in-house. Our method has been tested in some of the largest companies in the Nordics. We always deliver: Ownership, change, results. Canucci stems from a 160-year history of responsible ownership and constant change, with the Wallenberg Foundations as co-owners.',
   },
   'about.paragraph3': {
     sv: 'Canucci grundades av Oscar Stege Unger i Stockholm 2020 och har hittills inkluderat över 100 000 människor i dialogdriven förändring i 70 olika länder.',
@@ -283,3 +283,4 @@ export const useLanguage = (): LanguageContextType => {
   }
   return context;
 };
+
