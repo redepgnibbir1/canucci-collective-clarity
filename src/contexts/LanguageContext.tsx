@@ -146,6 +146,10 @@ const translations = {
     sv: 'Kontinuerlig kommunikation för att hålla engagemanget levande.',
     en: 'Continuous communication to keep engagement alive.',
   },
+  'solution.image.caption': {
+    sv: 'Vår textanalysplattform visualiserar viktiga teman och insikter från hela organisationen.',
+    en: 'Our text analysis platform visualizes important themes and insights from the entire organization.',
+  },
   'solution.cta': {
     sv: 'Läs mer om Collective Discovery™',
     en: 'Read more about Collective Discovery™',
@@ -283,4 +287,3 @@ export const useLanguage = (): LanguageContextType => {
   }
   return context;
 };
-

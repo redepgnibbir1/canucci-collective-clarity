@@ -15,6 +15,7 @@ const Solution = () => {
   const textRef = useRef<HTMLParagraphElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (inView) {
@@ -23,6 +24,7 @@ const Solution = () => {
         { element: titleRef.current, animation: "animate-slideDown" },
         { element: textRef.current, animation: "animate-fadeIn", delay: 200 },
         { element: stepsRef.current, animation: "staggered-animation", delay: 400 },
+        { element: imageRef.current, animation: "animate-fadeIn", delay: 800 },
         { element: ctaRef.current, animation: "animate-fadeIn", delay: 1000 }
       ];
 
@@ -134,6 +136,20 @@ const Solution = () => {
                   <p className="text-lg font-light">{t('solution.step5.description')}</p>
                 </div>
               </div>
+            </div>
+            
+            {/* Product image showing text analysis */}
+            <div ref={imageRef} className="opacity-0 mt-12">
+              <div className="rounded-lg overflow-hidden shadow-xl">
+                <img 
+                  src="/lovable-uploads/e671fa30-c5b6-40ea-bec3-9b212aa926dc.png" 
+                  alt="Canucci text analysis dashboard showing themes, topics, and data visualizations" 
+                  className="w-full h-auto"
+                />
+              </div>
+              <p className="text-center text-sm text-gray-500 mt-3 italic">
+                {t('solution.image.caption') || 'Vår textanalysplattform visualiserar viktiga teman och insikter från hela organisationen.'}
+              </p>
             </div>
             
             <p className="mt-10 text-lg italic">
