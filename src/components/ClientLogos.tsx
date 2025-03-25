@@ -81,12 +81,6 @@ const ClientLogos = () => {
       width: 140
     },
     { 
-      name: "Einride",
-      src: "/lovable-uploads/21ea4327-9a5c-417b-9baa-74b2ac7ad096.png",
-      width: 110
-    },
-    // Volvo logo removed from here
-    { 
       name: "PWC",
       src: "/lovable-uploads/2f3fcf39-df31-4688-af10-6d829e5869b2.png",
       width: 120
