@@ -75,6 +75,32 @@ const ClientLogos = () => {
       src: "/lovable-uploads/8c85218b-f745-4269-a69e-36444b6704e1.png",
       width: 160
     },
+    // Adding the new logos
+    { 
+      name: "Volati",
+      src: "/lovable-uploads/0f24431b-2b28-4e86-8ed2-37db14725133.png",
+      width: 140
+    },
+    { 
+      name: "Einride",
+      src: "/lovable-uploads/21ea4327-9a5c-417b-9baa-74b2ac7ad096.png",
+      width: 110
+    },
+    { 
+      name: "Volvo",
+      src: "/lovable-uploads/b4dc9240-4012-4754-912c-fa0f040f9337.png",
+      width: 140
+    },
+    { 
+      name: "PWC",
+      src: "/lovable-uploads/2f3fcf39-df31-4688-af10-6d829e5869b2.png",
+      width: 120
+    },
+    { 
+      name: "IPCO",
+      src: "/lovable-uploads/02cda927-9beb-4352-a62e-7dc6948017d1.png",
+      width: 120
+    },
   ];
 
   return (
