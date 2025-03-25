@@ -30,10 +30,6 @@ const ClientLogos = () => {
       src: "/lovable-uploads/Evolution_Gaming_logo_2020.JPG"
     },
     { 
-      name: "Axfood",
-      src: "/lovable-uploads/Axfood_logotype.png"
-    },
-    { 
       name: "Gaia",
       src: "/lovable-uploads/5b0aaf00-ca63-474c-b34d-5d0b72e0857a.png",
       width: 120
