@@ -107,6 +107,12 @@ const ClientLogos = () => {
       src: "/lovable-uploads/49f9cf47-bafe-4471-8d29-207f765fc298.png",
       width: 180
     },
+    // Add Södra logo
+    { 
+      name: "Södra",
+      src: "/lovable-uploads/054f6039-e9bc-4163-83f3-5069a73f8167.png",
+      width: 140
+    },
   ];
 
   return (
