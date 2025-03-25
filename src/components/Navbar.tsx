@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -60,8 +59,8 @@ const Navbar = () => {
       }`}
       style={{ transition: isMenuOpen ? 'none' : 'all 500ms' }}
     >
-      <div className="container mx-auto px-6 md:px-8">
-        <nav className="flex items-center justify-between py-4">
+      <div className="container mx-auto px-3 sm:px-4 md:px-8">
+        <nav className="flex items-center justify-between py-3 md:py-4">
           <Link 
             to="/" 
             className="flex items-center group"
@@ -140,26 +139,26 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button and language toggle */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center space-x-3">
             <ToggleGroup 
               type="single" 
               value={language}
               onValueChange={(value) => {
                 if (value) setLanguage(value as 'sv' | 'en');
               }}
-              className="border border-gray-200 rounded-full h-9 px-1 flex items-center transition-all duration-300 hover:border-canucci-red"
+              className="border border-gray-200 rounded-full h-8 px-1 flex items-center transition-all duration-300 hover:border-canucci-red"
             >
               <ToggleGroupItem 
                 value="sv" 
                 aria-label="Svenska" 
-                className="px-2 rounded-full text-xs h-7 transition-all duration-300 hover:text-canucci-red"
+                className="px-2 rounded-full text-xs h-6 transition-all duration-300 hover:text-canucci-red"
               >
                 SV
               </ToggleGroupItem>
               <ToggleGroupItem 
                 value="en" 
                 aria-label="English" 
-                className="px-2 rounded-full text-xs h-7 transition-all duration-300 hover:text-canucci-red"
+                className="px-2 rounded-full text-xs h-6 transition-all duration-300 hover:text-canucci-red"
               >
                 EN
               </ToggleGroupItem>
@@ -204,7 +203,7 @@ const Navbar = () => {
           isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         } md:hidden`}
       >
-        <div className="container mx-auto px-6 py-8">
+        <div className="container mx-auto px-4 py-8">
           <div className="flex justify-between items-center mb-8">
             <div 
               className="cursor-pointer transform transition-transform duration-300 hover:scale-110"

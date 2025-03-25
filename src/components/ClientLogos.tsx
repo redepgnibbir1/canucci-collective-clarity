@@ -116,9 +116,9 @@ const ClientLogos = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+    <section className="py-12 md:py-16 bg-white">
+      <div className="container mx-auto px-3 md:px-4">
+        <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-10">
           {logos.map((logo, index) => (
             <div 
               key={index} 
@@ -127,7 +127,7 @@ const ClientLogos = () => {
               <img 
                 src={logo.src} 
                 alt={`${logo.name} logo`} 
-                className={logo.width ? `h-auto w-[${logo.width}px]` : "h-auto w-[70px] sm:w-[85px] md:w-[95px] lg:w-[100px] xl:w-[110px]"}
+                className={logo.width ? `h-auto w-[${logo.width}px]` : "h-auto w-[60px] sm:w-[85px] md:w-[95px] lg:w-[100px] xl:w-[110px]"}
                 style={logo.width ? { width: `${logo.width}px` } : {}}
               />
             </div>

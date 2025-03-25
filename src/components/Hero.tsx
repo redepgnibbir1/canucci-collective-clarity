@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -24,11 +23,9 @@ const Hero = () => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
       
-      // Calculate position as percentage of viewport (-1 to 1)
       const x = (clientX / innerWidth - 0.5) * 2;
       const y = (clientY / innerHeight - 0.5) * 2;
       
-      // Add smooth transition
       setMousePosition(prev => ({
         x: prev.x + (x - prev.x) * 0.1,
         y: prev.y + (y - prev.y) * 0.1
@@ -41,7 +38,6 @@ const Hero = () => {
 
   useEffect(() => {
     if (inView) {
-      // Use a single animation sequence with proper timing
       const sequence = [
         { element: titleRef.current, animation: "animate-slideDown" },
         { element: textRef.current, animation: "animate-fadeIn", delay: 300 },
@@ -64,14 +60,11 @@ const Hero = () => {
     clientLogosSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Calculate transform values based on mouse position
   const getTransform = (x: number, y: number, intensity: number = 1) => {
     return `translate(${x * 30 * intensity}px, ${y * 30 * intensity}px)`;
   };
 
-  // Format the title to highlight specific phrases in both languages
   const formatTitle = (title: string) => {
-    // Check for Swedish version
     if (language === 'sv' && title.includes("genom dialog")) {
       const parts = title.split("genom dialog");
       return (
@@ -83,7 +76,6 @@ const Hero = () => {
       );
     }
     
-    // Check for English version 
     if (language === 'en' && title.includes("through dialogue")) {
       const parts = title.split("through dialogue");
       return (
@@ -95,7 +87,6 @@ const Hero = () => {
       );
     }
     
-    // Handle period variations for Swedish
     if (language === 'sv' && title.includes("genom dialog.")) {
       const parts = title.split("genom dialog.");
       return (
@@ -107,7 +98,6 @@ const Hero = () => {
       );
     }
     
-    // Handle period variations for English
     if (language === 'en' && title.includes("through dialogue.")) {
       const parts = title.split("through dialogue.");
       return (
@@ -127,9 +117,7 @@ const Hero = () => {
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50"
     >
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Animated Gradient Mesh */}
         <div 
           className="absolute inset-0 bg-gradient-to-br from-canucci-green/10 via-canucci-peach/10 to-canucci-salmon/10 animate-gradient-mesh"
           style={{ 
@@ -138,7 +126,6 @@ const Hero = () => {
           }}
         ></div>
         
-        {/* Floating Blobs with cursor interaction */}
         <div 
           className="absolute top-1/4 -left-20 w-96 h-96 bg-canucci-green/20 rounded-full filter blur-3xl animate-float-slow"
           style={{ 
@@ -162,27 +149,26 @@ const Hero = () => {
         ></div>
       </div>
 
-      {/* Content */}
-      <div className="container mx-auto px-6 md:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 
             ref={titleRef}
-            className="opacity-0 text-4xl md:text-6xl font-black mb-8 text-balance cursor-default"
+            className="opacity-0 text-3xl sm:text-4xl md:text-6xl font-black mb-6 md:mb-8 text-balance cursor-default"
           >
             {formatTitle(t('hero.title'))}
           </h1>
           
           <p 
             ref={textRef}
-            className="opacity-0 text-xl md:text-2xl font-light mb-12 text-balance cursor-default"
+            className="opacity-0 text-lg sm:text-xl md:text-2xl font-light mb-8 md:mb-12 text-balance cursor-default"
           >
             {t('hero.subtitle')}
           </p>
           
-          <div ref={ctaRef} className="opacity-0 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+          <div ref={ctaRef} className="opacity-0 flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6">
             <a 
               href="#solution"
-              className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block transform hover:scale-105 hover:shadow-lg"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block transform hover:scale-105 hover:shadow-lg"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
@@ -192,7 +178,7 @@ const Hero = () => {
             </a>
             <a
               href="#solution"
-              className="px-8 py-3 border border-canucci-dark text-canucci-dark hover:bg-canucci-dark hover:text-white rounded-full transition-all-300 inline-block transform hover:scale-105 hover:shadow-lg"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 border border-canucci-dark text-canucci-dark hover:bg-canucci-dark hover:text-white rounded-full transition-all-300 inline-block transform hover:scale-105 hover:shadow-lg"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
@@ -204,7 +190,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Decorative arrows pointing down */}
       <div 
         className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce cursor-pointer"
         onClick={scrollToNext}
