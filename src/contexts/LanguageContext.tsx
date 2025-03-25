@@ -127,7 +127,7 @@ const translations = {
     en: 'Together we define how to move forward.',
   },
   'solution.step3.description': {
-    sv: 'Workshop där ledningsgruppen skapar handlingsplan baserad på insikterna.',
+    sv: 'Tillsammans tar vi fram en handlingsplan',
     en: 'Workshop where the management team creates an action plan based on insights.',
   },
   'solution.step4.title': {
