@@ -137,7 +137,7 @@ const Solution = () => {
             <div ref={imageRef} className="opacity-0 mt-12">
               <div className="rounded-lg overflow-hidden shadow-xl">
                 <img 
-                  src="/lovable-uploads/e671fa30-c5b6-40ea-bec3-9b212aa926dc.png" 
+                  src="/lovable-uploads/f50b6b6e-a6a9-4506-82d4-d670983cb26e.png" 
                   alt="Canucci text analysis dashboard showing themes, topics, and data visualizations" 
                   className="w-full h-auto"
                 />
