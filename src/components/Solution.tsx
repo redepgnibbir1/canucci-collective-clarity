@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -13,7 +14,6 @@ const Solution = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const stepsRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,8 +22,7 @@ const Solution = () => {
         { element: titleRef.current, animation: "animate-slideDown" },
         { element: textRef.current, animation: "animate-fadeIn", delay: 200 },
         { element: stepsRef.current, animation: "staggered-animation", delay: 400 },
-        { element: imageRef.current, animation: "animate-fadeIn", delay: 800 },
-        { element: ctaRef.current, animation: "animate-fadeIn", delay: 1000 }
+        { element: imageRef.current, animation: "animate-fadeIn", delay: 800 }
       ];
 
       sequence.forEach(({ element, animation, delay = 0 }) => {
@@ -151,24 +150,6 @@ const Solution = () => {
             <p className="mt-10 text-lg italic">
              
             </p>
-          </div>
-          
-          <div ref={ctaRef} className="opacity-0 text-center">
-            <a 
-              href="#solution"
-              className="px-8 py-3 bg-canucci-dark hover:bg-canucci-red text-white rounded-full transition-all-300 inline-block"
-              onClick={(e) => {
-                e.preventDefault();
-                const navbarSolutionLink = document.querySelector('nav a[href="#solution"]');
-                if (navbarSolutionLink) {
-                  (navbarSolutionLink as HTMLElement).click();
-                } else {
-                  document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              {t('solution.cta')}
-            </a>
           </div>
         </div>
       </div>
