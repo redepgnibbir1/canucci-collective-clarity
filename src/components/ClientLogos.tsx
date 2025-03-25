@@ -26,10 +26,6 @@ const ClientLogos = () => {
       src: "/lovable-uploads/ab251c0b-42a6-438e-82ba-f6bffe4ba399.png"
     },
     { 
-      name: "Evolution",
-      src: "/lovable-uploads/Evolution_Gaming_logo_2020.JPG"
-    },
-    { 
       name: "Gaia",
       src: "/lovable-uploads/5b0aaf00-ca63-474c-b34d-5d0b72e0857a.png",
       width: 120
