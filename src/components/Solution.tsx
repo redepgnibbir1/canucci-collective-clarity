@@ -136,37 +136,41 @@ const Solution = () => {
                   <p className="text-lg font-light">{t('solution.step5.description')}</p>
                   
                   {/* Product Visualization Images */}
-                  <div ref={imagesRef} className="opacity-0 mt-6 space-y-6">
+                  <div ref={imagesRef} className="opacity-0 mt-8 space-y-8">
                     <h4 className="text-lg font-medium text-canucci-dark">Vårt verktyg visualiserar resultat i realtid:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    
+                    {/* Ändrad från 3-kolumn grid till 1-kolumn större bilder */}
+                    <div className="space-y-10">
                       <div className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm transition-all hover:shadow-md">
                         <img 
                           src="/lovable-uploads/1900e9a9-361b-4cf4-95fb-d41924422c2e.png" 
                           alt="Datavisualiseringschart med labels" 
-                          className="w-full h-auto object-cover transition-transform group-hover:scale-105"
+                          className="w-full h-auto object-contain transition-transform group-hover:scale-105"
                         />
-                        <div className="p-3 bg-white">
-                          <p className="text-sm text-gray-600">Visualisering av demografi och nyckelmetrik</p>
+                        <div className="p-4 bg-white">
+                          <p className="text-base text-gray-700">Visualisering av demografi och nyckelmetrik</p>
                         </div>
                       </div>
+                      
                       <div className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm transition-all hover:shadow-md">
                         <img 
                           src="/lovable-uploads/7eb17460-4cfb-40e5-8188-9077b8f36178.png" 
                           alt="Detaljvy av aktivitetsdata" 
-                          className="w-full h-auto object-cover transition-transform group-hover:scale-105"
+                          className="w-full h-auto object-contain transition-transform group-hover:scale-105"
                         />
-                        <div className="p-3 bg-white">
-                          <p className="text-sm text-gray-600">Detaljerad aktivitetsanalys</p>
+                        <div className="p-4 bg-white">
+                          <p className="text-base text-gray-700">Detaljerad aktivitetsanalys</p>
                         </div>
                       </div>
+                      
                       <div className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm transition-all hover:shadow-md">
                         <img 
                           src="/lovable-uploads/88dd1aa5-6fda-4e3e-bb82-9adb6d0ddbf2.png" 
                           alt="Tematisk analys med topics" 
-                          className="w-full h-auto object-cover transition-transform group-hover:scale-105"
+                          className="w-full h-auto object-contain transition-transform group-hover:scale-105"
                         />
-                        <div className="p-3 bg-white">
-                          <p className="text-sm text-gray-600">Tematisk analys och topicmodellering</p>
+                        <div className="p-4 bg-white">
+                          <p className="text-base text-gray-700">Tematisk analys och topicmodellering</p>
                         </div>
                       </div>
                     </div>
