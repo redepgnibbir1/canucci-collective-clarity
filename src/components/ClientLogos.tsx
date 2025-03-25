@@ -85,11 +85,7 @@ const ClientLogos = () => {
       src: "/lovable-uploads/21ea4327-9a5c-417b-9baa-74b2ac7ad096.png",
       width: 110
     },
-    { 
-      name: "Volvo",
-      src: "/lovable-uploads/b4dc9240-4012-4754-912c-fa0f040f9337.png",
-      width: 140
-    },
+    // Volvo logo removed from here
     { 
       name: "PWC",
       src: "/lovable-uploads/2f3fcf39-df31-4688-af10-6d829e5869b2.png",
