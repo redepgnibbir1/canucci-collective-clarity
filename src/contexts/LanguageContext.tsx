@@ -111,7 +111,7 @@ const translations = {
     en: 'Everyone contributes – in their own words.',
   },
   'solution.step1.description': {
-    sv: 'Enkel digital enkät där varje medarbetare kan utrycka sin mening.',
+    sv: 'Med vårt egenutvecklade intervjuverktyg kan alla uttrycka sin mening.',
     en: 'Simple digital survey where each employee can express their opinion.',
   },
   'solution.step2.title': {
