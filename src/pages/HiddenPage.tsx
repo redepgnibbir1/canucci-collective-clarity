@@ -10,19 +10,19 @@ import BeforeAfter from "@/components/survey/BeforeAfter";
 const HiddenPage = () => {
   const perspectiveData = {
     title: "Vem pratar om vad?",
-    headers: ["VD-perspektiv", "Ledarperspektiv"],
+    headers: ["VD-perspektiv", "Ledarperspektiv"] as [string, string],
     rows: [
       ["Ledarskap", "Kommunikation"],
       ["Ansvar", "Ledarskap"],
       ["Kommunikation", "Förståelse för strategin"],
       ["Förståelse för strategin", "Samarbete"],
       ["Kultur", "Kultur"],
-    ],
+    ] as Array<[string, string]>,
   };
 
   const sizeData = {
     title: "Hur stor är din organisation, påverkar det dina prioriteringar?",
-    headers: ["0-500", "501-10,000+"],
+    headers: ["0-500", "501-10,000+"] as [string, string],
     rows: [
       ["Ledarskap", "Kommunikation"],
       ["Kommunikation", "Ledarskap"],
@@ -30,7 +30,7 @@ const HiddenPage = () => {
       ["Kultur", "Samarbete"],
       ["Förståelse för strategin", "Kultur"],
       ["Samarbete", "Ansvar"],
-    ],
+    ] as Array<[string, string]>,
   };
 
   return (
